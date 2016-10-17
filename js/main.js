@@ -57,9 +57,27 @@ function log(message){
 	$('.log').append('<p>'+message+'</p>');
 }
 
+
+
+
+
+
+//assess and begin buffer/workout cycle
+function startCycle(){
+	if((workTime+(exTime+buffer))<=timeSecs){
+		startBuffer();
+	}
+	else{
+		var remaining=timeSecs-(workTime);
+
+		log(remaining + ' seconds gap time remain');
+		end();
+	}
+}
+
 //begin buffer
 function startBuffer(){
-	log('buffer starts at '+workTime);
+	log('buffer starts at '+workTime +' ('+deck[currentCard].name+')');
 	log('in buffer');
 	window.setTimeout(function(){
 		workTime+=buffer;
@@ -70,7 +88,7 @@ function startBuffer(){
 
 //begin exercise
 function startExercise(){
-	if((workTime+(exTime+buffer))<timeSecs){
+	
 		log('exercise starts at '+workTime+' ('+deck[currentCard].name+')');
 		log('exercising');
 		var seconds=0;
@@ -94,15 +112,9 @@ function startExercise(){
 				currentCard=0;
 			}
 
-			startBuffer();
+			startCycle();
 		},exTime*10);
-	}
-	else{
-		var remaining=timeSecs-(workTime);
-
-		log(remaining + ' seconds gap time remain');
-		end();
-	}
+	
 
 }
 
@@ -111,14 +123,13 @@ function end(){
 	$('.log').append('<p>done</p>');
 }
 
-//begin workout
 
 
 
 
 
 
-
+//get checked form controls from set, return array of selected values
 function getChecked(set){
 	var checked=[];
 
@@ -131,6 +142,7 @@ function getChecked(set){
 
 }
 
+//combine arrays and return combined
 function combineArrays(array){
 	var newArray=[];
 	$.each(array,function(){
@@ -143,19 +155,22 @@ function combineArrays(array){
 
 
 $(document).ready(function(){
+
+	//go button clicked
 	$('#go').click(function(){
+
+		//combine deck from selected body sections
 		deck=combineArrays(getChecked('[name="body-set"]'));
 		
 		//randomize deck
 		shuffle(deck);
-		console.log(deck);
-		// console.log(getChecked('[name="sweat-set"]'));
-		// console.log(getChecked('[name="time-set"]'));
 
+		//pull time and intensity settings
 		timeMins=parseInt(getChecked('[name="time-set"]')[0]);
 		exTime=parseInt(getChecked('[name="sweat-set"]')[0]);
 		timeSecs=timeMins*60;
-		console.log(timeMins,exTime,timeSecs);
-		startExercise();
+
+		//begin initial workout cycle
+		startCycle();
 	});
 });
