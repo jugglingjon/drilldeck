@@ -82,3 +82,11 @@ Examples:
   text-align: center;
   font-size: 22px;
 }
+.modal {
+  position: fixed;
+  background: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

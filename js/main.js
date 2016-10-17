@@ -54,7 +54,8 @@ var workTime=0;
 
 //adds message text to visua log
 function log(message){
-	$('.log').append('<p>'+message+'</p>');
+	//$('.log').append('<p>'+message+'</p>');
+	console.log(message);
 }
 
 
@@ -96,14 +97,14 @@ function startBuffer(){
 		if(seconds>=buffer){
 			clearInterval(bufferTimer);
 		}
-	},1000);
+	},10);
 
 
 	window.setTimeout(function(){
 		workTime+=buffer;
 		log('buffer ends at '+workTime);
 		startExercise();
-	},buffer*1000);
+	},buffer*10);
 }
 
 //begin exercise
@@ -121,7 +122,7 @@ function startExercise(){
 		if(seconds>=exTime){
 			clearInterval(currentTimer);
 		}
-	},1000);
+	},10);
 
 	window.setTimeout(function(){
 		workTime+=exTime;
@@ -136,14 +137,19 @@ function startExercise(){
 		}
 
 		startCycle();
-	},exTime*1000);
+	},exTime*10);
 
 
 }
 
 //workout complete
 function end(){
-	$('.log').append('<p>done</p>');
+	log('done');
+	$('#endModal').modal();
+	$('#endModal').on('shown.bs.modal',function(){
+		workTime=0;
+		$('.card').hide();
+	});
 }
 
 
