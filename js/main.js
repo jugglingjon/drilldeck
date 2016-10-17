@@ -2,30 +2,30 @@
 var currentCard=0;
 var cards={
 	"upper":[
-	{"name":"Upper 1","played":0},
-	{"name":"Upper 2","played":0},
-	{"name":"Upper 3","played":0},
-	{"name":"Upper 4","played":0}
+	{"name":"Upper 1"},
+	{"name":"Upper 2"},
+	{"name":"Upper 3"},
+	{"name":"Upper 4"}
 	],
 	"core":[
-	{"name":"Core 1","played":0},
-	{"name":"Core 2","played":0},
-	{"name":"Core 3","played":0},
-	{"name":"Core 4","played":0}
+	{"name":"Core 1"},
+	{"name":"Core 2"},
+	{"name":"Core 3"},
+	{"name":"Core 4"}
 	],
 	"lower":[
-	{"name":"Lower 1","played":0},
-	{"name":"Lower 2","played":0},
-	{"name":"Lower 3","played":0},
-	{"name":"Lower 4","played":0}
+	{"name":"Lower 1"},
+	{"name":"Lower 2"},
+	{"name":"Lower 3"},
+	{"name":"Lower 4"}
 	],
 	"fullbody":[
-	{"name":"Full Body 1","played":0},
-	{"name":"Full Body 2","played":0},
-	{"name":"Full Body 3","played":0},
-	{"name":"Full Body 4","played":0}
+	{"name":"Full Body 1"},
+	{"name":"Full Body 2"},
+	{"name":"Full Body 3"},
+	{"name":"Full Body 4"}
 	]
-}
+};
 
 //array shuffle function
 function shuffle(a) {
@@ -59,7 +59,11 @@ function log(message){
 
 
 
-
+//show card
+function showCard(){
+	$('.card .card-title').text(deck[currentCard].name);
+	$('.card').show();
+}
 
 
 //assess and begin buffer/workout cycle
@@ -77,44 +81,63 @@ function startCycle(){
 
 //begin buffer
 function startBuffer(){
+	$('.card').addClass('buffering');
+	showCard();
+
 	log('buffer starts at '+workTime +' ('+deck[currentCard].name+')');
 	log('in buffer');
+
+	var seconds=0;
+	$('.card .card-timer').text(buffer-seconds);
+	var bufferTimer=setInterval(function(){
+		seconds++;
+		$('.card .card-timer').text(buffer-seconds);
+		//console.log(seconds);
+		if(seconds>=buffer){
+			clearInterval(bufferTimer);
+		}
+	},1000);
+
+
 	window.setTimeout(function(){
 		workTime+=buffer;
 		log('buffer ends at '+workTime);
 		startExercise();
-	},buffer*10);
+	},buffer*1000);
 }
 
 //begin exercise
 function startExercise(){
-	
-		log('exercise starts at '+workTime+' ('+deck[currentCard].name+')');
-		log('exercising');
-		var seconds=0;
-		var currentTimer=setInterval(function(){
-			seconds++;
-			//console.log(seconds);
-			if(seconds>=exTime){
-				clearInterval(currentTimer);
-			}
-		},10);
+	$('.card').removeClass('buffering');
+	log('exercise starts at '+workTime+' ('+deck[currentCard].name+')');
+	log('exercising');
 
-		window.setTimeout(function(){
-			workTime+=exTime;
-			log('exercise ends at '+workTime);
+	var seconds=0;
+	$('.card .card-timer').text(exTime-seconds);
+	var currentTimer=setInterval(function(){
+		seconds++;
+		$('.card .card-timer').text(exTime-seconds);
+		//console.log(seconds);
+		if(seconds>=exTime){
+			clearInterval(currentTimer);
+		}
+	},1000);
 
-			if(currentCard<(deck.length-1)){
-				currentCard++;
-			}
-			else{
-				shuffle(deck);
-				currentCard=0;
-			}
+	window.setTimeout(function(){
+		workTime+=exTime;
+		log('exercise ends at '+workTime);
 
-			startCycle();
-		},exTime*10);
-	
+		if(currentCard<(deck.length-1)){
+			currentCard++;
+		}
+		else{
+			shuffle(deck);
+			currentCard=0;
+		}
+
+		startCycle();
+	},exTime*1000);
+
 
 }
 

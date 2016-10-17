@@ -57,3 +57,28 @@ Examples:
   width: 23%;
   margin: 0 1% 10px 1%;
 }
+.card {
+  position: fixed;
+  background: green;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+}
+.card.buffering {
+  background: red;
+}
+.card .card-animation {
+  height: 300px;
+}
+.card .card-animation .card-title {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+}
+.card .card-timer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 22px;
+}

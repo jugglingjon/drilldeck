@@ -22,3 +22,33 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+$.fn.animateOut = function(animation,callback){
+    var events='webkitAnimationEnd';
+    animation=animation?animation:'fadeOut';
+
+    this.one(events,function(){
+        $(this).hide();
+        $(this).removeClass(animation+' animated');
+        if(callback){
+            callback.call(this);
+        }
+    });
+    this.addClass('animated '+animation);
+    return this;
+};
+
+
+
+$.fn.animateIn = function(animation,callback){
+    var events='webkitAnimationEnd';
+    animation=animation?animation:'fadeIn';
+
+    this.one(events,function(){
+        $(this).removeClass(animation+' animated');
+        if(callback){
+            callback.call(this);
+        }
+    });
+    this.addClass('animated '+animation).show();
+    return this;
+};
