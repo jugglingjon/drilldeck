@@ -60,10 +60,10 @@ Examples:
 .card {
   position: fixed;
   background: green;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 600px;
   color: white;
 }
 .card.buffering {
@@ -82,11 +82,56 @@ Examples:
   text-align: center;
   font-size: 22px;
 }
-.modal {
+.workout-timer {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
   background: white;
+}
+.workout-timer .btn-end {
+  display: inline-block;
+  margin: 10px;
+  width: 20px;
+  line-height: 15px;
+  font-size: 28px;
+  text-align: center;
+}
+.workout-timer .workout-timer-total {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 30px;
+  margin: 10px;
+  height: 20px;
+  background: blue;
+}
+.workout-timer .workout-timer-total .workout-timer-elapsed {
+  display: inline-block;
+  width: 0;
+  height: 20px;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  background-color: orange;
+}
+.modal .modal-dialog {
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  margin: 0;
+  background: white;
+}
+.modal .modal-dialog .modal-content {
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+}
+.modal .modal-dialog .modal-content .modal-header {
+  border: 0;
+}
+.modal .modal-dialog .modal-content .modal-footer {
+  border: 0;
 }

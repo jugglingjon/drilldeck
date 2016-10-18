@@ -48,7 +48,10 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
+var ms=1000;
+
 var timeSecs=timeMins*60;
+var bufferTimer, currentTimer, exerciseTimeout, bufferTimeout;
 
 var workTime=0;
 
@@ -66,6 +69,10 @@ function showCard(){
 	$('.card').show();
 }
 
+function updateWorkoutTimer(){
+	var percentWidth=workTime/timeSecs*100;
+	$('.workout-timer-elapsed').css('width',percentWidth+'%');
+}
 
 //assess and begin buffer/workout cycle
 function startCycle(){
@@ -90,21 +97,23 @@ function startBuffer(){
 
 	var seconds=0;
 	$('.card .card-timer').text(buffer-seconds);
-	var bufferTimer=setInterval(function(){
+	bufferTimer=setInterval(function(){
 		seconds++;
+		workTime++;
+		updateWorkoutTimer();
 		$('.card .card-timer').text(buffer-seconds);
 		//console.log(seconds);
 		if(seconds>=buffer){
 			clearInterval(bufferTimer);
 		}
-	},10);
+	},ms);
 
 
-	window.setTimeout(function(){
-		workTime+=buffer;
+	bufferTimeout=window.setTimeout(function(){
+		//workTime+=buffer;
 		log('buffer ends at '+workTime);
 		startExercise();
-	},buffer*10);
+	},buffer*ms);
 }
 
 //begin exercise
@@ -115,17 +124,19 @@ function startExercise(){
 
 	var seconds=0;
 	$('.card .card-timer').text(exTime-seconds);
-	var currentTimer=setInterval(function(){
+	currentTimer=setInterval(function(){
 		seconds++;
+		workTime++;
+		updateWorkoutTimer();
 		$('.card .card-timer').text(exTime-seconds);
 		//console.log(seconds);
 		if(seconds>=exTime){
 			clearInterval(currentTimer);
 		}
-	},10);
+	},ms);
 
-	window.setTimeout(function(){
-		workTime+=exTime;
+	exerciseTimeout=window.setTimeout(function(){
+		//workTime+=exTime;
 		log('exercise ends at '+workTime);
 
 		if(currentCard<(deck.length-1)){
@@ -137,7 +148,7 @@ function startExercise(){
 		}
 
 		startCycle();
-	},exTime*10);
+	},exTime*ms);
 
 
 }
@@ -147,7 +158,13 @@ function end(){
 	log('done');
 	$('#endModal').modal();
 	$('#endModal').on('shown.bs.modal',function(){
+		clearInterval(currentTimer);
+		clearInterval(bufferTimer);
+		window.clearTimeout(exerciseTimeout);
+		window.clearTimeout(bufferTimeout);
 		workTime=0;
+		updateWorkoutTimer();
+		$('.settings').show();
 		$('.card').hide();
 	});
 }
@@ -186,20 +203,28 @@ function combineArrays(array){
 $(document).ready(function(){
 
 	//go button clicked
-	$('#go').click(function(){
+	$('#btn-go').click(function(){
 
-		//combine deck from selected body sections
-		deck=combineArrays(getChecked('[name="body-set"]'));
-		
-		//randomize deck
-		shuffle(deck);
+		$('.settings').fadeOut(function(){
+			//combine deck from selected body sections
+			deck=combineArrays(getChecked('[name="body-set"]'));
+			
+			//randomize deck
+			shuffle(deck);
 
-		//pull time and intensity settings
-		timeMins=parseInt(getChecked('[name="time-set"]')[0]);
-		exTime=parseInt(getChecked('[name="sweat-set"]')[0]);
-		timeSecs=timeMins*60;
+			//pull time and intensity settings
+			timeMins=parseInt(getChecked('[name="time-set"]')[0]);
+			exTime=parseInt(getChecked('[name="sweat-set"]')[0]);
+			timeSecs=timeMins*60;
 
-		//begin initial workout cycle
-		startCycle();
+			//begin initial workout cycle
+			startCycle();
+		});
+
+	});
+
+	$('.btn-end').click(function(){
+		end();
+		return false;
 	});
 });
