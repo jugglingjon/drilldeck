@@ -2,28 +2,28 @@
 var currentCard=0;
 var cards={
 	"upper":[
-	{"name":"Upper 1"},
-	{"name":"Upper 2"},
-	{"name":"Upper 3"},
-	{"name":"Upper 4"}
+	{"name":"Upper 1","frames":["1.png","2.png"]},
+	{"name":"Upper 2","frames":["1.png","2.png"]},
+	{"name":"Upper 3","frames":["1.png","2.png"]},
+	{"name":"Upper 4","frames":["1.png","2.png"]}
 	],
 	"core":[
-	{"name":"Core 1"},
-	{"name":"Core 2"},
-	{"name":"Core 3"},
-	{"name":"Core 4"}
+	{"name":"Core 1","frames":["1.png","2.png"]},
+	{"name":"Core 2","frames":["1.png","2.png"]},
+	{"name":"Core 3","frames":["1.png","2.png"]},
+	{"name":"Core 4","frames":["1.png","2.png"]}
 	],
 	"lower":[
-	{"name":"Lower 1"},
-	{"name":"Lower 2"},
-	{"name":"Lower 3"},
-	{"name":"Lower 4"}
+	{"name":"Lower 1","frames":["1.png","2.png"]},
+	{"name":"Lower 2","frames":["1.png","2.png"]},
+	{"name":"Lower 3","frames":["1.png","2.png"]},
+	{"name":"Lower 4","frames":["1.png","2.png"]}
 	],
 	"fullbody":[
-	{"name":"Full Body 1"},
-	{"name":"Full Body 2"},
-	{"name":"Full Body 3"},
-	{"name":"Full Body 4"}
+	{"name":"Full Body 1","frames":["1.png","2.png"]},
+	{"name":"Full Body 2","frames":["1.png","2.png"]},
+	{"name":"Full Body 3","frames":["1.png","2.png"]},
+	{"name":"Full Body 4","frames":["1.png","2.png"]}
 	]
 };
 
@@ -36,6 +36,17 @@ function shuffle(a) {
 		a[i - 1] = a[j];
 		a[j] = x;
 	}
+}
+
+//converts seconds to min:sec
+function minSec(time){
+	var minutes=Math.floor(time/60);
+	var seconds=time - minutes *60;
+	if (seconds<10){
+		seconds='0'+seconds;
+	}
+
+	return minutes+':'+seconds;
 }
 
 //create test array of upper and lower body exercises
@@ -156,7 +167,15 @@ function startExercise(){
 //workout complete
 function end(){
 	log('done');
+	$('.workout-timer').hide();
+
+	//populate open end modal window
+	$('#endModal .end-elapsed').text(minSec(workTime));
+	$('#endModal .end-sweat').text(parseInt(getChecked('[name="sweat-set"]')[0])/30);
+	$('#endModal .end-body').text(getChecked('[name="body-set"]').join(','));
 	$('#endModal').modal();
+
+	//after modal shown, reset
 	$('#endModal').on('shown.bs.modal',function(){
 		clearInterval(currentTimer);
 		clearInterval(bufferTimer);
@@ -206,6 +225,8 @@ $(document).ready(function(){
 	$('#btn-go').click(function(){
 
 		$('.settings').fadeOut(function(){
+			$('.workout-timer').show();
+
 			//combine deck from selected body sections
 			deck=combineArrays(getChecked('[name="body-set"]'));
 			

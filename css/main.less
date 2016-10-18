@@ -33,47 +33,49 @@ Examples:
 // 				Form Controls
 // ====================================
 
+#settings{
+	.set-input{
+		display:none;
+	}
 
-
-.set-input{
-	display:none;
-}
-
-.set-label{
-	display: block;
-	float:left;
-	height: 75px;
-	background-color:orange;
-	color:white;
-
-	line-height: 75px;
-	text-align:center;
-}
-
-.set-input:checked + .set-label{
-	background:blue;
-}
-
-.input-set-2{
 	.set-label{
-		width: 48%;
-		margin:0 1% 10px 1%;
-	}	
+		display: block;
+		float:left;
+		height: 75px;
+		background-color:orange;
+		color:white;
+
+		line-height: 75px;
+		text-align:center;
+	}
+
+	.set-input:checked + .set-label{
+		background:blue;
+	}
+
+	.input-set-2{
+		.set-label{
+			width: 48%;
+			margin:0 1% 10px 1%;
+		}	
+	}
+
+	.input-set-3{
+		.set-label{
+			width: 31.333333333333332%;
+			margin:0 1% 10px 1%;
+		}	
+	}
+
+	.input-set-4{
+		.set-label{
+			width: 23%;
+			margin:0 1% 10px 1%;
+		}	
+	}
 }
 
-.input-set-3{
-	.set-label{
-		width: 31.333333333333332%;
-		margin:0 1% 10px 1%;
-	}	
-}
 
-.input-set-4{
-	.set-label{
-		width: 23%;
-		margin:0 1% 10px 1%;
-	}	
-}
 
 
 // ====================================

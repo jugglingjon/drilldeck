@@ -30,10 +30,10 @@ Examples:
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
-.set-input {
+#settings .set-input {
   display: none;
 }
-.set-label {
+#settings .set-label {
   display: block;
   float: left;
   height: 75px;
@@ -42,18 +42,18 @@ Examples:
   line-height: 75px;
   text-align: center;
 }
-.set-input:checked + .set-label {
+#settings .set-input:checked + .set-label {
   background: blue;
 }
-.input-set-2 .set-label {
+#settings .input-set-2 .set-label {
   width: 48%;
   margin: 0 1% 10px 1%;
 }
-.input-set-3 .set-label {
+#settings .input-set-3 .set-label {
   width: 31.333333333333332%;
   margin: 0 1% 10px 1%;
 }
-.input-set-4 .set-label {
+#settings .input-set-4 .set-label {
   width: 23%;
   margin: 0 1% 10px 1%;
 }
