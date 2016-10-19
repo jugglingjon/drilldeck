@@ -83,14 +83,17 @@ Examples:
 // ====================================
 
 .card{
+	display:none;
 	position: fixed;
 	background: green;
-	top: 10px;
-	left: 10px;
-	right: 10px;
-	height: 600px;
+	top: 100px;
+	left: 20px;
+	right: 20px;
+	height: 520px;
 
 	color:white;
+	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.4);
+	transition: 1s ease-out all;
 
 	&.buffering{
 		background:red;
@@ -110,6 +113,16 @@ Examples:
 		margin-top:20px;
 		text-align:center;
 		font-size: 22px;
+	}
+
+	&:nth-child(2){
+		top:60px;
+		transform: scale(.9);
+	}
+
+	&:nth-child(1){
+		top:20px;
+		transform: scale(.8);
 	}
 }
 

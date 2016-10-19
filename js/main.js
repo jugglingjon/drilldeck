@@ -157,7 +157,7 @@ function startExercise(){
 			shuffle(deck);
 			currentCard=0;
 		}
-
+		
 		startCycle();
 	},exTime*ms);
 

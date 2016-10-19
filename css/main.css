@@ -58,13 +58,17 @@ Examples:
   margin: 0 1% 10px 1%;
 }
 .card {
+  display: none;
   position: fixed;
   background: green;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  height: 600px;
+  top: 100px;
+  left: 20px;
+  right: 20px;
+  height: 520px;
   color: white;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.4);
+  -webkit-transition: 1s ease-out all;
+  transition: 1s ease-out all;
 }
 .card.buffering {
   background: red;
@@ -81,6 +85,16 @@ Examples:
   margin-top: 20px;
   text-align: center;
   font-size: 22px;
+}
+.card:nth-child(2) {
+  top: 60px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+.card:nth-child(1) {
+  top: 20px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 .workout-timer {
   position: fixed;
