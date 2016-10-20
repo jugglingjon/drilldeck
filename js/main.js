@@ -59,7 +59,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=1000;
+var ms=100;
 
 var timeSecs=timeMins*60;
 var bufferTimer, currentTimer, exerciseTimeout, bufferTimeout;
@@ -127,6 +127,27 @@ function startBuffer(){
 	},buffer*ms);
 }
 
+function advanceCards(){
+	$('.card').eq(2).css({
+		"transform":"scale(1.2)",
+		"opacity":0,
+		"top":"180px"
+	});
+
+	$('.card').eq(1).css({
+		"transform":"scale(1)",
+		"top":"100px"
+	});
+
+	$('.card').eq(0).css({
+		"transform":"scale(.9)",
+		"top":"60px"
+	}).clone().prependTo('.cards').css({
+		"transform":"scale(.8)",
+		"top":"20px"
+	});
+}
+
 //begin exercise
 function startExercise(){
 	$('.card').removeClass('buffering');
@@ -157,12 +178,14 @@ function startExercise(){
 			shuffle(deck);
 			currentCard=0;
 		}
-		
+		advanceCards();
 		startCycle();
 	},exTime*ms);
 
 
 }
+
+
 
 //workout complete
 function end(){
