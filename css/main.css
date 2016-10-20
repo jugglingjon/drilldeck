@@ -73,8 +73,19 @@ Examples:
 .card.buffering {
   background: red;
 }
-.card .card-animation {
+.card .card-animation .animation {
   height: 300px;
+  position: relative;
+}
+.card .card-animation .animation .animation-frame {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+}
+.card .card-animation .animation .animation-frame.animation-frame-visible {
+  opacity: 1;
 }
 .card .card-animation .card-title {
   margin: 0;

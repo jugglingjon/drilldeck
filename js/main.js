@@ -2,9 +2,9 @@
 var currentCard=0;
 var cards={
 	"upper":[
-	{"name":"Upper 1","frames":["1.png","2.png"]},
+	{"name":"Upper 1","frames":["chairsit1.png","chairsit2.png"]},
 	{"name":"Upper 2","frames":["1.png","2.png"]},
-	{"name":"Upper 3","frames":["1.png","2.png"]},
+	{"name":"Upper 3","frames":["chairsit1.png","chairsit2.png"]},
 	{"name":"Upper 4","frames":["1.png","2.png"]}
 	],
 	"core":[
@@ -59,10 +59,10 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=100;
+var ms=1000;
 
 var timeSecs=timeMins*60;
-var bufferTimer, currentTimer, exerciseTimeout, bufferTimeout;
+var bufferTimer, currentTimer, exerciseTimeout, bufferTimeout, animationTimer;
 
 var workTime=0;
 
@@ -76,7 +76,7 @@ function log(message){
 
 //show card
 function showCard(){
-	$('.card .card-title').text(deck[currentCard].name);
+	$('.frontCard:first .card-title').text(deck[currentCard].name);
 	$('.card').show();
 }
 
@@ -100,19 +100,36 @@ function startCycle(){
 
 //begin buffer
 function startBuffer(){
-	$('.card').addClass('buffering');
+	var activeCard=$('.frontCard').first();
+
+	activeCard.addClass('buffering');
 	showCard();
+
+	$.each(deck[currentCard].frames,function(){
+		activeCard.find('.animation').append($('<img src="img/'+this+'" class="animation-frame">'));
+	});
+
+	activeCard.find('.animation-frame:first').addClass('animation-frame-visible');
+	animationTimer = setInterval(function(){
+		if($('.animation-frame-visible').next().length){
+			$('.animation-frame-visible').removeClass('animation-frame-visible').next().addClass('animation-frame-visible');
+		}
+		else{
+			$('.animation-frame-visible').removeClass('animation-frame-visible');
+			$('.animation-frame').first().addClass('animation-frame-visible')
+		}
+	},1000);
 
 	log('buffer starts at '+workTime +' ('+deck[currentCard].name+')');
 	log('in buffer');
 
 	var seconds=0;
-	$('.card .card-timer').text(buffer-seconds);
+	activeCard.find('.card-timer').text(buffer-seconds);
 	bufferTimer=setInterval(function(){
 		seconds++;
 		workTime++;
 		updateWorkoutTimer();
-		$('.card .card-timer').text(buffer-seconds);
+		activeCard.find('.card-timer').text(buffer-seconds);
 		//console.log(seconds);
 		if(seconds>=buffer){
 			clearInterval(bufferTimer);
@@ -134,7 +151,7 @@ function advanceCards(){
 		"top":"180px"
 	});
 
-	$('.card').eq(1).css({
+	$('.card').eq(1).addClass('frontCard').css({
 		"transform":"scale(1)",
 		"top":"100px"
 	});
@@ -146,24 +163,32 @@ function advanceCards(){
 		"transform":"scale(.8)",
 		"top":"20px"
 	});
+
+	setTimeout(function(){
+		$('.card').last().remove();
+	},1000);
 }
 
 //begin exercise
 function startExercise(){
-	$('.card').removeClass('buffering');
+
+	var activeCard=$('.frontCard').first();
+
+	activeCard.removeClass('buffering');
 	log('exercise starts at '+workTime+' ('+deck[currentCard].name+')');
 	log('exercising');
 
 	var seconds=0;
-	$('.card .card-timer').text(exTime-seconds);
+	activeCard.find('.card-timer').text(exTime-seconds);
 	currentTimer=setInterval(function(){
 		seconds++;
 		workTime++;
 		updateWorkoutTimer();
-		$('.card .card-timer').text(exTime-seconds);
+		activeCard.find('.card-timer').text(exTime-seconds);
 		//console.log(seconds);
 		if(seconds>=exTime){
 			clearInterval(currentTimer);
+			clearInterval(animationTimer);
 		}
 	},ms);
 
@@ -202,8 +227,10 @@ function end(){
 	$('#endModal').on('shown.bs.modal',function(){
 		clearInterval(currentTimer);
 		clearInterval(bufferTimer);
+		clearInterval(animationTimer);
 		window.clearTimeout(exerciseTimeout);
 		window.clearTimeout(bufferTimeout);
+		$('.animation').empty();
 		workTime=0;
 		updateWorkoutTimer();
 		$('.settings').show();
