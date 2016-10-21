@@ -140,6 +140,12 @@ Examples:
   transition: 1s all;
   background-color: orange;
 }
+.controls {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
 .modal .modal-dialog {
   position: fixed;
   top: 0;

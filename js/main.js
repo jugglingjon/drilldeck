@@ -59,7 +59,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=1000;
+var ms=100;
 
 var timeSecs=timeMins*60;
 var bufferTimer, currentTimer, exerciseTimeout, bufferTimeout, animationTimer;
@@ -90,6 +90,9 @@ function startCycle(){
 	if((workTime+(exTime+buffer))<=timeSecs){
 		startBuffer();
 	}
+	else if(timeSecs-workTime>=30){
+		startBuffer(timeSecs-workTime);
+	}
 	else{
 		var remaining=timeSecs-(workTime);
 
@@ -99,7 +102,9 @@ function startCycle(){
 }
 
 //begin buffer
-function startBuffer(){
+function startBuffer(gapTime){
+	console.log(gapTime);
+
 	var activeCard=$('.frontCard').first();
 
 	activeCard.addClass('buffering');
@@ -116,7 +121,7 @@ function startBuffer(){
 		}
 		else{
 			$('.animation-frame-visible').removeClass('animation-frame-visible');
-			$('.animation-frame').first().addClass('animation-frame-visible')
+			$('.animation-frame').first().addClass('animation-frame-visible');
 		}
 	},1000);
 
@@ -140,7 +145,14 @@ function startBuffer(){
 	bufferTimeout=window.setTimeout(function(){
 		//workTime+=buffer;
 		log('buffer ends at '+workTime);
-		startExercise();
+
+		if(gapTime){
+			startExercise(gapTime-buffer);
+		}
+		else{
+			startExercise();
+		}
+		
 	},buffer*ms);
 }
 
@@ -170,7 +182,13 @@ function advanceCards(){
 }
 
 //begin exercise
-function startExercise(){
+function startExercise(gapTime){
+	var timerTime=exTime;
+
+	if(gapTime){
+		timerTime=gapTime;
+		console.log('GAP TIME BEING UTILIZED ('+timerTime+')');
+	}
 
 	var activeCard=$('.frontCard').first();
 
@@ -186,7 +204,7 @@ function startExercise(){
 		updateWorkoutTimer();
 		activeCard.find('.card-timer').text(exTime-seconds);
 		//console.log(seconds);
-		if(seconds>=exTime){
+		if(seconds>=timerTime){
 			clearInterval(currentTimer);
 			clearInterval(animationTimer);
 		}
@@ -205,7 +223,7 @@ function startExercise(){
 		}
 		advanceCards();
 		startCycle();
-	},exTime*ms);
+	},timerTime*ms);
 
 
 }
@@ -292,6 +310,36 @@ $(document).ready(function(){
 			startCycle();
 		});
 
+	});
+
+	//skips current card
+	$('#btn-skip').click(function(){
+		clearInterval(currentTimer);
+		clearInterval(bufferTimer);
+		clearInterval(animationTimer);
+		window.clearTimeout(exerciseTimeout);
+		window.clearTimeout(bufferTimeout);
+
+		//workTime+=exTime;
+		log('exercise ends at '+workTime);
+
+		//remove this card from rotation
+		deck.splice(currentCard,1);
+
+		//if deck is depleted, end
+		if(deck.length==0){
+			end();
+		}
+
+		if(currentCard<(deck.length-1)){
+			currentCard++;
+		}
+		else{
+			shuffle(deck);
+			currentCard=0;
+		}
+		advanceCards();
+		startCycle();
 	});
 
 	$('.btn-end').click(function(){
