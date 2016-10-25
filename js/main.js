@@ -59,7 +59,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=100;
+var ms=1000;
 
 var timeSecs=timeMins*60;
 var bufferTimer, currentTimer, exerciseTimeout, bufferTimeout, animationTimer;
@@ -123,7 +123,7 @@ function startBuffer(gapTime){
 			$('.animation-frame-visible').removeClass('animation-frame-visible');
 			$('.animation-frame').first().addClass('animation-frame-visible');
 		}
-	},1000);
+	},1500);
 
 	log('buffer starts at '+workTime +' ('+deck[currentCard].name+')');
 	log('in buffer');
@@ -159,8 +159,8 @@ function startBuffer(gapTime){
 function advanceCards(){
 	$('.card').eq(2).css({
 		"transform":"scale(1.2)",
-		"opacity":0,
-		"top":"180px"
+		"opacity":1,
+		"transform":"translateX(500px) rotate(30deg)"
 	});
 
 	$('.card').eq(1).addClass('frontCard').css({
