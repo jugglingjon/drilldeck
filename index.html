@@ -20,11 +20,9 @@
 	<div class="settings">
 		<div class="container" id="settings" style="margin-top: 60px;">
 			<div class="row">
-				<div class="col-xs-12 input-set-2">
-					<input type="checkbox" class="set-input" data-inputValue="upper" name="body-set" id="body-upper"><label class="set-label" for="body-upper">Upper</label>
-					<input type="checkbox" class="set-input" data-inputValue="core" name="body-set" id="body-core"><label class="set-label" for="body-core">Core</label>
-					<input type="checkbox" class="set-input" data-inputValue="lower" name="body-set" id="body-lower"><label class="set-label" for="body-lower">Lower</label>
-					<input type="checkbox" class="set-input" data-inputValue="fullbody" name="body-set" id="body-fullbody"><label class="set-label" for="body-fullbody">Full Body</label>
+				<div class="col-xs-12 input-set-4">
+					<h4>Focus Area(s)</h4>
+					<input type="checkbox" class="set-input" data-inputValue="upper" name="body-set" id="body-upper"><label class="set-label" for="body-upper">Upper</label><input type="checkbox" class="set-input" data-inputValue="core" name="body-set" id="body-core"><label class="set-label" for="body-core">Core</label><input type="checkbox" class="set-input" data-inputValue="lower" name="body-set" id="body-lower"><label class="set-label" for="body-lower">Lower</label><input type="checkbox" class="set-input" data-inputValue="fullbody" name="body-set" id="body-fullbody"><label class="set-label" for="body-fullbody">Full Body</label>
 
 
 				</div>
@@ -32,69 +30,66 @@
 
 			<div class="row">
 				<div class="col-xs-12 input-set-3">
-					<input type="radio" class="set-input" data-inputValue="30" name="sweat-set" id="sweat-1"><label class="set-label" for="sweat-1">1</label>
-					<input type="radio" class="set-input" data-inputValue="60" name="sweat-set" id="sweat-2"><label class="set-label" for="sweat-2">2</label>
-					<input type="radio" class="set-input" data-inputValue="90" name="sweat-set" id="sweat-3"><label class="set-label" for="sweat-3">3</label>
+					<h4>Intensity</h4>
+					<input type="radio" class="set-input" data-inputValue="30" name="sweat-set" id="sweat-1"><label class="set-label" for="sweat-1">1</label><input type="radio" class="set-input" data-inputValue="60" name="sweat-set" id="sweat-2"><label class="set-label" for="sweat-2">2</label><input type="radio" class="set-input" data-inputValue="90" name="sweat-set" id="sweat-3"><label class="set-label" for="sweat-3">3</label>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-xs-12 input-set-4">
-					<input type="radio" class="set-input" data-inputValue="5" name="time-set" id="time-5"><label class="set-label" for="time-5">5</label>
-					<input type="radio" class="set-input" data-inputValue="10" name="time-set" id="time-10"><label class="set-label" for="time-10">10</label>
-					<input type="radio" class="set-input" data-inputValue="15" name="time-set" id="time-15"><label class="set-label" for="time-15">15</label>
-					<input type="radio" class="set-input" data-inputValue="20" name="time-set" id="time-20"><label class="set-label" for="time-20">20</label>
+					<h4>Duration</h4>
+					<input type="radio" class="set-input" data-inputValue="5" name="time-set" id="time-5"><label class="set-label" for="time-5">5</label><input type="radio" class="set-input" data-inputValue="10" name="time-set" id="time-10"><label class="set-label" for="time-10">10</label><input type="radio" class="set-input" data-inputValue="15" name="time-set" id="time-15"><label class="set-label" for="time-15">15</label><input type="radio" class="set-input" data-inputValue="20" name="time-set" id="time-20"><label class="set-label" for="time-20">20</label>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-xs-12">
-					<a href="#" class="btn btn-primary btn-block" id="btn-go">Go</a>
-					<div class="log"></div>
-				</div>
+			<div class="nav-bottom">
+				<a href="#" class="btn btn-primary btn-block" id="btn-go">Go</a>
+				<div class="log"></div>
 			</div>
+				
 		</div>
 	</div>
 	
-	<div class="cards">
-		<div class="card" style="display:none;">
-			<div class="card-animation">
-				<div class="animation">
+	<div class="workout" style="display:none;">
+		<div class="cards">
+			<div class="card" style="">
+				<div class="card-animation">
+					<div class="animation">
+					</div>
+					<h2 class="card-title"></h2>
 				</div>
-				<h2 class="card-title"></h2>
+				<div class="card-timer"></div>
 			</div>
-			<div class="card-timer"></div>
-		</div>
-		<div class="card" style="display:none;">
-			<div class="card-animation">
-				<div class="animation">
+			<div class="card" style="">
+				<div class="card-animation">
+					<div class="animation">
+					</div>
+					<h2 class="card-title"></h2>
 				</div>
-				<h2 class="card-title"></h2>
+				<div class="card-timer"></div>
 			</div>
-			<div class="card-timer"></div>
-		</div>
-		<div class="card frontCard" style="display:none;">
-			<div class="card-animation">
-				<div class="animation">
+			<div class="card frontCard" style="">
+				<div class="card-animation">
+					<div class="animation">
+					</div>
+					<h2 class="card-title"></h2>
 				</div>
-				<h2 class="card-title"></h2>
+				<div class="card-timer"></div>
 			</div>
-			<div class="card-timer"></div>
 		</div>
-	</div>
 
-	<div class="workout-timer" style="display:none;">
-		<a href="#" class="btn-end">&times;</a><div class="workout-timer-total"><div class="workout-timer-elapsed"></div></div>
-	</div>
+		<div class="workout-timer" style="">
+			<a href="#" class="btn-end">&times;</a><div class="workout-timer-total"><div class="workout-timer-elapsed"></div></div>
+		</div>
 
-	<div class="controls">
-		<a href="#" class="btn btn-pause btn-primary" id="btn-pause">Pause</a>
-		<a href="#" class="btn btn-resume btn-primary" id="btn-resume">Resume</a>
-		<a href="#" class="btn btn-skip btn-primary" id="btn-skip">Skip</a>
+		<div class="nav-bottom nav-bottom-2">
+			<a href="#" class="btn btn-pause" id="btn-pause">Pause</a>
+			<a href="#" class="btn btn-skip" id="btn-skip">Skip</a>
+		</div>
 	</div>
 
 	<!-- Modal -->
-	<div class="modal fade" id="endModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal full fade" id="endModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -109,6 +104,25 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Play Again</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="pauseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+
+				</div>
+				<div class="modal-body">
+					<h3>Pause</h3>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default btn-block" data-dismiss="modal" id="btn-resume">Resume</button>
 
 				</div>
 			</div>

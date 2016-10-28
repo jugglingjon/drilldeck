@@ -30,32 +30,67 @@ Examples:
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
+body,
+html {
+  font-size: 16px;
+  background-color: #363D3F;
+}
+.nav-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.nav-bottom.nav-bottom-2 .btn {
+  width: 50%;
+  float: left;
+}
+.nav-bottom.nav-bottom-2 .btn:first-child {
+  border-right: 1px solid #363D3F;
+}
+.btn {
+  border-radius: 0;
+  height: 80px;
+  padding: 0;
+  line-height: 80px;
+  background-color: #EF832C;
+  color: white;
+  border: 0;
+  font-size: 1.625rem;
+  text-transform: uppercase;
+}
+#settings {
+  text-align: center;
+}
+#settings h4 {
+  color: #6E7B7B;
+  font-size: .625rem;
+  text-transform: uppercase;
+}
 #settings .set-input {
   display: none;
 }
 #settings .set-label {
-  display: block;
-  float: left;
+  display: inline-block;
   height: 75px;
-  background-color: orange;
+  min-width: 70px;
+  padding: 0 0.9375rem;
+  background-color: transparent;
   color: white;
+  border: 1px solid #6E7B7B;
+  border-right: 0;
   line-height: 75px;
   text-align: center;
 }
+#settings .set-label:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+#settings .set-label:last-child {
+  border-radius: 0px 4px 4px 0;
+  border-right: 1px solid #6E7B7B;
+}
 #settings .set-input:checked + .set-label {
-  background: blue;
-}
-#settings .input-set-2 .set-label {
-  width: 48%;
-  margin: 0 1% 10px 1%;
-}
-#settings .input-set-3 .set-label {
-  width: 31.333333333333332%;
-  margin: 0 1% 10px 1%;
-}
-#settings .input-set-4 .set-label {
-  width: 23%;
-  margin: 0 1% 10px 1%;
+  background: #232929;
 }
 .card {
   display: none;
@@ -64,7 +99,7 @@ Examples:
   top: 100px;
   left: 20px;
   right: 20px;
-  height: 520px;
+  height: 460px;
   color: white;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.4);
   -webkit-transition: 1s ease-out all;
@@ -146,13 +181,15 @@ Examples:
   width: 100%;
   height: 40px;
 }
-.modal .modal-dialog {
+.modal.full .modal-dialog {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   margin: 0;
+}
+.modal .modal-dialog {
   background: white;
 }
 .modal .modal-dialog .modal-content {

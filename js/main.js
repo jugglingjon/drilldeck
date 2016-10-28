@@ -1,5 +1,7 @@
 
-var currentCard=0;
+var currentCard=0,
+	deckCycle=1;
+
 var cards={
 	"upper":[
 	{"name":"Upper 1","frames":["chairsit1.png","chairsit2.png"]},
@@ -59,7 +61,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=1000,
+var ms=100,
 	timeRemaining=0,
 	state='buffer'
 	globalGapTime=null;
@@ -230,8 +232,14 @@ function startExercise(gapTime){
 			currentCard++;
 		}
 		else{
-			shuffle(deck);
-			currentCard=0;
+			if(deckCycle<=3){
+				shuffle(deck);
+				currentCard=0;
+				deckCycle++;
+			}
+			else{
+				end();
+			}
 		}
 		advanceCards();
 		startCycle();
@@ -245,7 +253,7 @@ function startExercise(gapTime){
 //workout complete
 function end(){
 	log('done');
-	$('.workout-timer').hide();
+
 
 	//populate open end modal window
 	$('#endModal .end-elapsed').text(minSec(workTime));
@@ -255,6 +263,7 @@ function end(){
 
 	//after modal shown, reset
 	$('#endModal').on('shown.bs.modal',function(){
+		deckCycle=1;
 		clearInterval(currentTimer);
 		clearInterval(bufferTimer);
 		clearInterval(animationTimer);
@@ -264,8 +273,8 @@ function end(){
 		$('.animation').empty();
 		workTime=0;
 		updateWorkoutTimer();
+		$('.workout').hide();
 		$('.settings').show();
-		$('.card').hide();
 	});
 }
 
@@ -306,21 +315,22 @@ $(document).ready(function(){
 	$('#btn-go').click(function(){
 
 		$('.settings').fadeOut(function(){
-			$('.workout-timer').show();
+			$('.workout').fadeIn(function(){
+				//combine deck from selected body sections
+				deck=combineArrays(getChecked('[name="body-set"]'));
+				
+				//randomize deck
+				shuffle(deck);
 
-			//combine deck from selected body sections
-			deck=combineArrays(getChecked('[name="body-set"]'));
-			
-			//randomize deck
-			shuffle(deck);
+				//pull time and intensity settings
+				timeMins=parseInt(getChecked('[name="time-set"]')[0]);
+				exTime=parseInt(getChecked('[name="sweat-set"]')[0]);
+				timeSecs=timeMins*60;
 
-			//pull time and intensity settings
-			timeMins=parseInt(getChecked('[name="time-set"]')[0]);
-			exTime=parseInt(getChecked('[name="sweat-set"]')[0]);
-			timeSecs=timeMins*60;
+				//begin initial workout cycle
+				startCycle();
+			});
 
-			//begin initial workout cycle
-			startCycle();
 		});
 
 	});
@@ -350,6 +360,7 @@ $(document).ready(function(){
 		else{
 			shuffle(deck);
 			currentCard=0;
+			deckCycle++;
 		}
 		advanceCards();
 		startCycle();
@@ -361,6 +372,7 @@ $(document).ready(function(){
 		window.clearTimeout(exerciseTimeout);
 		window.clearTimeout(bufferTimeout);
 
+		$('#pauseModal').modal();
 		console.log(state,timeRemaining);
 	});
 
@@ -424,8 +436,15 @@ $(document).ready(function(){
 					currentCard++;
 				}
 				else{
-					shuffle(deck);
-					currentCard=0;
+					if(deckCycle<=3){
+						shuffle(deck);
+						currentCard=0;
+						deckCycle++;
+					}
+					else{
+						end();
+					}
+					
 				}
 				advanceCards();
 				startCycle();

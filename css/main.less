@@ -27,6 +27,60 @@ Examples:
 */
 @import "elements.less";
 
+// ====================================
+// 				Variables
+// ====================================
+
+@background:#363D3F;
+@dark: #232929;
+@light: #6E7B7B;
+@orange: #EF832C;
+@blue: #4898D4;
+
+@basePadding: 1.25rem;
+
+@baseFont: 1rem;
+@largerFont: 1.625rem;
+
+// ====================================
+// 				Shared
+// ====================================
+
+body,html{
+	font-size: 16px;
+	background-color: @background;
+}
+
+
+.nav-bottom{
+	position: fixed;
+	right:0;
+	left:0;
+	bottom:0;
+
+	&.nav-bottom-2 .btn{
+		width: 50%;
+		float: left;
+
+		&:first-child{
+			border-right: 1px solid @background;
+		}
+	}
+}
+
+.btn{
+	border-radius:0;
+	height: 80px;
+	padding:0;
+
+	line-height: 80px;
+	background-color: @orange;
+	color:white;
+	border:0;
+	font-size: @largerFont;
+	text-transform:uppercase;
+}
+
 
 
 // ====================================
@@ -34,43 +88,66 @@ Examples:
 // ====================================
 
 #settings{
+	
+
+	text-align:center;
+
+	h4{
+		color:@light;
+		font-size: .625rem;
+		text-transform:uppercase;
+	}
 	.set-input{
 		display:none;
 	}
 
 	.set-label{
-		display: block;
-		float:left;
+		display: inline-block;
 		height: 75px;
-		background-color:orange;
+		min-width:70px;
+		padding: 0 @basePadding*.75;
+		
+
+		background-color:transparent;
 		color:white;
+		border: 1px solid @light;
+		border-right: 0;
 
 		line-height: 75px;
 		text-align:center;
+
+		&:first-of-type{
+			border-radius: 4px 0 0 4px;
+		}
+
+		&:last-child{
+			border-radius: 0px 4px 4px 0;
+			border-right: 1px solid @light;
+		}
 	}
 
 	.set-input:checked + .set-label{
-		background:blue;
+		background:@dark;
 	}
 
 	.input-set-2{
 		.set-label{
-			width: 48%;
-			margin:0 1% 10px 1%;
+			//width: 48%;
+			//margin:0 1% 10px 1%;
 		}	
 	}
 
 	.input-set-3{
 		.set-label{
-			width: 31.333333333333332%;
-			margin:0 1% 10px 1%;
+			//width: 31.333333333333332%;
+			//margin:0 1% 10px 1%;
 		}	
 	}
 
 	.input-set-4{
 		.set-label{
-			width: 23%;
-			margin:0 1% 10px 1%;
+			//width: 23%;
+			//margin:0 1% 10px 1%;
 		}	
 	}
 }
@@ -89,7 +166,7 @@ Examples:
 	top: 100px;
 	left: 20px;
 	right: 20px;
-	height: 520px;
+	height: 460px;
 
 	color:white;
 	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.4);
@@ -216,7 +293,7 @@ Examples:
 
 .modal{
 
-	.modal-dialog{
+	&.full .modal-dialog{
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -224,6 +301,10 @@ Examples:
 		right: 0;
 
 		margin:0;
+	}
+
+	.modal-dialog{
+		
 		background: white;
 
 		.modal-content{
