@@ -203,3 +203,6 @@ html {
 .modal .modal-dialog .modal-content .modal-footer {
   border: 0;
 }
+.donut {
+  display: none;
+}

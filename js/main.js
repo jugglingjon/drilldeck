@@ -61,8 +61,9 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=100,
+var ms=1000,
 	timeRemaining=0,
+	donutSeconds=0;
 	state='buffer'
 	globalGapTime=null;
 
@@ -137,19 +138,31 @@ function startBuffer(gapTime){
 	log('in buffer');
 
 	var seconds=0;
-	activeCard.find('.card-timer').text(buffer-seconds);
+	activeCard.find('.card-timer').knob({
+		readOnly : true,
+		thickness : .2,
+		max : 10,
+		width: 100,
+		height: 100,
+		step: .1,
+		bgColor: '#1C1C1C',
+		fgColor: '#FFD081',
+		displayInput: false
+	});
+	console.log()
+	activeCard.find('.card-timer').val(buffer-seconds).trigger('change');
 	bufferTimer=setInterval(function(){
 		
-		seconds++;
-		workTime++;
+		seconds+=.1;
+		workTime+=.1;
 		updateWorkoutTimer();
-		activeCard.find('.card-timer').text(buffer-seconds);
+		activeCard.find('.card-timer').val(buffer-seconds).trigger('change');
 		timeRemaining=(buffer-seconds);
 		//console.log(seconds);
 		if(seconds>=buffer){
 			clearInterval(bufferTimer);
 		}
-	},ms);
+	},ms/10);
 
 
 	bufferTimeout=window.setTimeout(function(){
@@ -209,20 +222,35 @@ function startExercise(gapTime){
 	log('exercise starts at '+workTime+' ('+deck[currentCard].name+')');
 	log('exercising');
 
+	activeCard.find('.card-timer').trigger(
+        'configure',
+        {
+            readOnly : true,
+			thickness : .2,
+			max : 30,
+			width: 100,
+			height: 100,
+			bgColor: '#1C1C1C',
+			fgColor: '#FFD081',
+			displayInput: false
+        }
+    );
+
+
 	var seconds=0;
-	activeCard.find('.card-timer').text(exTime-seconds);
+	activeCard.find('.card-timer').val(exTime-seconds).trigger('change');
 	currentTimer=setInterval(function(){
-		seconds++;
-		workTime++;
+		seconds+=.1;
+		workTime+=.1;
 		updateWorkoutTimer();
-		activeCard.find('.card-timer').text(exTime-seconds);
+		activeCard.find('.card-timer').val(exTime-seconds).trigger('change');
 		timeRemaining=exTime-seconds;
 		//console.log(seconds);
 		if(seconds>=timerTime){
 			clearInterval(currentTimer);
 			clearInterval(animationTimer);
 		}
-	},ms);
+	},ms/10);
 
 	exerciseTimeout=window.setTimeout(function(){
 		//workTime+=exTime;
@@ -311,6 +339,8 @@ function combineArrays(array){
 
 $(document).ready(function(){
 
+	
+
 	//go button clicked
 	$('#btn-go').click(function(){
 
@@ -383,13 +413,13 @@ $(document).ready(function(){
 		if(state=='buffer'){
 			var seconds=0;
 
-			activeCard.find('.card-timer').text(originalTimeRemaining-seconds);
+			activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
 			bufferTimer=setInterval(function(){
 				
 				seconds++;
 				workTime++;
 				updateWorkoutTimer();
-				activeCard.find('.card-timer').text(originalTimeRemaining-seconds);
+				activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
 				timeRemaining=(originalTimeRemaining-seconds);
 				//console.log(seconds);
 				if(seconds>=originalTimeRemaining){
@@ -414,12 +444,12 @@ $(document).ready(function(){
 		else{
 
 			var seconds=0;
-			activeCard.find('.card-timer').text(originalTimeRemaining-seconds);
+			activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
 			currentTimer=setInterval(function(){
 				seconds++;
 				workTime++;
 				updateWorkoutTimer();
-				activeCard.find('.card-timer').text(originalTimeRemaining-seconds);
+				activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
 				timeRemaining=exTime-seconds;
 				//console.log(seconds);
 				if(seconds>=originalTimeRemaining){
