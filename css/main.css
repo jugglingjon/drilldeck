@@ -359,11 +359,20 @@ html {
   border-right: 1px solid #6d7a7a;
   text-align: center;
 }
-.modal#endModal .modal-body .endBox .endBox-focusArea .endBox-focusArea-image {
-  display: inline-block;
-  width: 100%;
+.modal#endModal .modal-body .endBox .endBox-focusArea .endBox-focusArea-image img {
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  width: 70%;
+}
+.modal#endModal .modal-body .endBox .endBox-focusArea .endBox-focusArea-image img.endBox-focusArea-image-overlay {
+  display: none;
 }
 .modal#endModal .modal-body .endBox .endBox-focusArea h5 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin-top: 5px;
 }
 .modal#endModal .modal-body .endBox .endBox-intensity {

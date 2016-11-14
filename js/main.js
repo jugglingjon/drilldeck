@@ -318,7 +318,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=100000,
+var ms=1000,
 	timeRemaining=0,
 	donutSeconds=0;
 	state='buffer'
@@ -564,9 +564,14 @@ function end(){
 
 	$('.endBox-time-number').text(minSec(workTime));
 
-	$('#endModal .end-elapsed').text(minSec(workTime));
-	$('#endModal .end-sweat').text(parseInt(getChecked('[name="sweat-set"]')[0])/30);
-	$('#endModal .end-body').text(getChecked('[name="body-set"]').join(','));
+	$('.endBox-focusArea-image-overlay').hide();
+	$.each(getChecked('[name="body-set"]'),function(){
+		$('.endBox-focusArea-image-overlay.endBox-focusArea-image-'+this).show();
+	});
+
+	// $('#endModal .end-elapsed').text(minSec(workTime));
+	// $('#endModal .end-sweat').text(parseInt(getChecked('[name="sweat-set"]')[0])/30);
+	// $('#endModal .end-body').text(getChecked('[name="body-set"]').join(','));
 	$('#endModal').modal();
 
 	//after modal shown, reset
