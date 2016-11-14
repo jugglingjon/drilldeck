@@ -11,6 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/main.css">
 
@@ -20,32 +21,37 @@
 	<div class="settings">
 		<div class="container" id="settings" style="margin-top: 60px;">
 			<div class="row">
-				<div class="col-xs-12 input-set-4">
+				<div class="col-xs-12">
+					<span class="ddicon ddicon-logo logo"></span>
+					<p><strong>Customize your workout</strong> - choose one (or more) focus areas, an intensity level, and a duration for your workout.</p>
+				</div>
+
+				<div class="col-xs-12 input-set-4 input-set-focus">
 					<h4>Focus Area(s)</h4>
-					<input type="checkbox" class="set-input" data-inputValue="upper" name="body-set" id="body-upper"><label class="set-label" for="body-upper">Upper</label><input type="checkbox" class="set-input" data-inputValue="core" name="body-set" id="body-core"><label class="set-label" for="body-core">Core</label><input type="checkbox" class="set-input" data-inputValue="lower" name="body-set" id="body-lower"><label class="set-label" for="body-lower">Lower</label><input type="checkbox" class="set-input" data-inputValue="fullbody" name="body-set" id="body-fullbody"><label class="set-label" for="body-fullbody">Full Body</label>
+					<input type="checkbox" class="set-input" data-inputValue="upper" name="body-set" id="body-upper"><label class="set-label" for="body-upper"><img src="img/upper.png" class="img-responsive">Upper<br>Body</label><input type="checkbox" class="set-input" data-inputValue="core" name="body-set" id="body-core"><label class="set-label" for="body-core"><img src="img/core.png" class="img-responsive">Core<br>&nbsp;</label><input type="checkbox" class="set-input" data-inputValue="lower" name="body-set" id="body-lower"><label class="set-label" for="body-lower"><img src="img/lower.png" class="img-responsive">Lower<br>Body</label><input type="checkbox" class="set-input" data-inputValue="fullbody" name="body-set" id="body-fullbody"><label class="set-label" for="body-fullbody"><img src="img/fullbody.png" class="img-responsive">Full<br>Body</label>
 
 
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-xs-12 input-set-3">
+				<div class="col-xs-12 input-set-3 input-set-intensity">
 					<h4>Intensity</h4>
-					<input type="radio" class="set-input" data-inputValue="30" name="sweat-set" id="sweat-1"><label class="set-label" for="sweat-1">1</label><input type="radio" class="set-input" data-inputValue="60" name="sweat-set" id="sweat-2"><label class="set-label" for="sweat-2">2</label><input type="radio" class="set-input" data-inputValue="90" name="sweat-set" id="sweat-3"><label class="set-label" for="sweat-3">3</label>
+					<input type="radio" class="set-input" data-inputValue="30" name="sweat-set" id="sweat-1"><label class="set-label" for="sweat-1"><i class="ddicon ddicon-drop"></i></i><span class="input_sub">Low</span></label><input type="radio" class="set-input" data-inputValue="60" name="sweat-set" id="sweat-2"><label class="set-label" for="sweat-2"><i class="ddicon ddicon-drop"></i><i class="ddicon ddicon-drop"></i><span class="input_sub">Medium</span></label><input type="radio" class="set-input" data-inputValue="90" name="sweat-set" id="sweat-3"><label class="set-label" for="sweat-3"><i class="ddicon ddicon-drop"></i><i class="ddicon ddicon-drop"></i><i class="ddicon ddicon-drop"></i><span class="input_sub">High</span></label>
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row input-set-times">
 				<div class="col-xs-12 input-set-4">
 					<h4>Duration</h4>
-					<input type="radio" class="set-input" data-inputValue="5" name="time-set" id="time-5"><label class="set-label" for="time-5">5</label><input type="radio" class="set-input" data-inputValue="10" name="time-set" id="time-10"><label class="set-label" for="time-10">10</label><input type="radio" class="set-input" data-inputValue="15" name="time-set" id="time-15"><label class="set-label" for="time-15">15</label><input type="radio" class="set-input" data-inputValue="20" name="time-set" id="time-20"><label class="set-label" for="time-20">20</label>
+					<input type="radio" class="set-input" data-inputValue="5" name="time-set" id="time-5"><label class="set-label" for="time-5">5<span class="input_sub">min</span></label><input type="radio" class="set-input" data-inputValue="10" name="time-set" id="time-10"><label class="set-label" for="time-10">10<span class="input_sub">min</span></label><input type="radio" class="set-input" data-inputValue="15" name="time-set" id="time-15"><label class="set-label" for="time-15">15<span class="input_sub">min</span></label><input type="radio" class="set-input" data-inputValue="20" name="time-set" id="time-20"><label class="set-label" for="time-20">20<span class="input_sub">min</span></label>
 				</div>
 			</div>
 
 			
 
 			<div class="nav-bottom">
-				<a href="#" class="btn btn-primary btn-block" id="btn-go">Go</a>
+				<a href="#" class="btn btn-primary btn-block" id="btn-go">I'm Ready, Let's go!</a>
 				<div class="log"></div>
 			</div>
 				
@@ -55,34 +61,42 @@
 	<div class="workout" style="display:none;">
 		<div class="cards">
 			<div class="card" style="">
+				<h2 class="card-title"></h2>
+				<i class="ddicon ddicon-info"></i>
+				<div class="card-description"></div>
 				<div class="card-animation">
 					<div class="animation">
 					</div>
-					<h2 class="card-title"></h2>
 				</div>
-				<input type="text" class="card-timer" value="0"/>
+				<h3 class="card-type"></h3>
+				<div class="card-timer-wrapper"><input type="text" class="card-timer" value="0"/><span class="card-timer-time"></span></div>
 			</div>
 			<div class="card" style="">
+				<h2 class="card-title"></h2>
+				<i class="ddicon ddicon-info"></i>
+				<div class="card-description"></div>
 				<div class="card-animation">
 					<div class="animation">
 					</div>
-					<h2 class="card-title"></h2>
 				</div>
-				<input type="text" class="card-timer" value="0"/>
+				<h3 class="card-type"></h3>
+				<div class="card-timer-wrapper"><input type="text" class="card-timer" value="0"/><span class="card-timer-time"></span></div>
 			</div>
 			<div class="card frontCard" style="">
+				<h2 class="card-title"></h2>
+				<i class="ddicon ddicon-info"></i>
+				<div class="card-description"></div>
 				<div class="card-animation">
 					<div class="animation">
 					</div>
-					<h2 class="card-title"></h2>
 				</div>
-				<input type="text" class="card-timer" value="0"/>
-				
+				<h3 class="card-type">Test</h3>
+				<div class="card-timer-wrapper"><input type="text" class="card-timer" value="0"/><span class="card-timer-time"></span></div>
 			</div>
 		</div>
 
 		<div class="workout-timer" style="">
-			<a href="#" class="btn-end">&times;</a><div class="workout-timer-total"><div class="workout-timer-elapsed"></div></div>
+			<a href="#" class="btn-end"><i class="ddicon ddicon-close"></i></a><div class="workout-timer-total"><div class="workout-timer-elapsed"></div></div>
 		</div>
 
 		<div class="nav-bottom nav-bottom-2">
@@ -95,18 +109,37 @@
 	<div class="modal full fade" id="endModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-
-				</div>
 				<div class="modal-body">
-					<H2>The End</H2>
+					<H2>HOOAH!</H2>
+					<div class="endBox">
+						<div class="endBox-focusArea">
+							<img src="img/upper.png" alt="" class="endBox-focusArea-image img-responsive">
+							<h5>Focus Area</h5>
+						</div>
+						<div class="endBox-intensity">
+							<div class="endBox-intensity-drops">
+								
+							</div>
+							<span class="endBox-intensity-title">Medium</span>
+						</div>
+						<div class="endBox-time">
+							<span class="endBox-time-number">15</span>
+							<div class="endBox-time-title">Time</div>
+						</div>
+					</div>
+
+					<h3>Use static stretching after working out.</h3>
+					<p>Static stretching brings down your heart rate and helps to reduce muscle fatigue.</p>
+
+					<a href="#" class="btn-rounded btn-end-learnmore">Learn More</a>
+
 					<p>Elapsed: <span class="end-elapsed"></span></p>
 					<p>Sweat Level: <span class="end-sweat"></span></p>
 					<p>Target Areas: <span class="end-body"></span></p>
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default btn-block" data-dismiss="modal">Play Again</button>
+					<button type="button" class="btn btn-default btn-block" data-dismiss="modal">I'm Done</button>
 
 				</div>
 			</div>
@@ -117,16 +150,16 @@
 	<div class="modal fade" id="pauseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-
-				</div>
 				<div class="modal-body">
-					<h3>Pause</h3>
+					<h3>Paused</h3>
+					<img src="img/water.jpg" class="img-responsive">
+					<h4>Stay hydrated.</h4>
+					<p>Whether you’re an elite athlete or a weekend warrior, drinking water during exercise is essential.</p>
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default btn-block" data-dismiss="modal" id="btn-resume">Resume</button>
-
+					<button type="button" class="btn btn-default btn-block" data-dismiss="modal" id="btn-resume">Resume Workout</button>
+					<a href="#" class="btn-pause-end" data-dismiss="modal">End Workout</a>
 				</div>
 			</div>
 		</div>

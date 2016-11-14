@@ -26,6 +26,7 @@ Examples:
 
 */
 @import "elements.less";
+@import "fonts.css";
 
 // ====================================
 // 				Variables
@@ -33,22 +34,28 @@ Examples:
 
 @background:#363D3F;
 @dark: #232929;
+@uigray: #6d7a7a;
 @light: #6E7B7B;
+@middle: #D4DCDB;
 @orange: #EF832C;
 @blue: #4898D4;
 
 @basePadding: 1.25rem;
 
 @baseFont: 1rem;
-@largerFont: 1.625rem;
+@largerFont: 2.2857142857rem;
+
+.card-description{
+}
 
 // ====================================
 // 				Shared
 // ====================================
 
 body,html{
-	font-size: 16px;
+	font-size: 14px;
 	background-color: @background;
+	font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -70,15 +77,36 @@ body,html{
 
 .btn{
 	border-radius:0;
-	height: 80px;
+	height: 74px;
 	padding:0;
 
-	line-height: 80px;
+	line-height: 74px;
 	background-color: @orange;
 	color:white;
 	border:0;
+	font-family:'Open Sans Condensed', sans-serif;
 	font-size: @largerFont;
 	text-transform:uppercase;
+}
+
+.btn-rounded{
+	display:inline-block;
+	padding: 0px 16px;
+	border: 1px solid @blue;
+	height: 36px;
+	border-radius: 18px;
+	margin:10px 0 20px 0;
+
+	text-transform: uppercase;
+	text-align:center;
+	color: @blue;
+	line-height: 36px;
+
+}
+
+
+.workout .btn{
+	background-color: #6F7B7B;
 }
 
 
@@ -90,7 +118,19 @@ body,html{
 #settings{
 	
 
+	color:white;
 	text-align:center;
+
+	.logo{
+		color: @orange;
+		font-size:26px;
+		margin-bottom: 16px;
+		display:inline-block;
+	}
+
+	p{
+		color:@middle;
+	}
 
 	h4{
 		color:@light;
@@ -103,18 +143,29 @@ body,html{
 
 	.set-label{
 		display: inline-block;
-		height: 75px;
 		min-width:70px;
-		padding: 0 @basePadding*.75;
+		padding: @basePadding*.75 @basePadding*.75;
 		
 
 		background-color:transparent;
 		color:white;
 		border: 1px solid @light;
 		border-right: 0;
+		font-weight:600;
 
-		line-height: 75px;
+
 		text-align:center;
+		text-transform:uppercase;
+	
+		.ddicon-drop{
+			color: @blue;
+			font-size:24px;
+			margin: 0 3px;
+		}
+		span.input_sub{
+			display:block;
+			font-size: 1rem
+		}
 
 		&:first-of-type{
 			border-radius: 4px 0 0 4px;
@@ -123,6 +174,17 @@ body,html{
 		&:last-child{
 			border-radius: 0px 4px 4px 0;
 			border-right: 1px solid @light;
+		}
+
+		img{
+			width:45px;
+			margin:0;
+		}
+	}
+
+	.input-set-focus{
+		.set-label{
+			text-align:center;
 		}
 	}
 
@@ -150,6 +212,11 @@ body,html{
 			//margin:0 1% 10px 1%;
 		}	
 	}
+
+	.input-set-times{
+		font-size: 2.35rem;
+		line-height:75%;
+	}
 }
 
 
@@ -162,8 +229,8 @@ body,html{
 .card{
 	display:none;
 	position: fixed;
-	background: green;
-	top: 100px;
+	background-color: #E0E0E0;
+	top: 80px;
 	left: 20px;
 	right: 20px;
 	height: 460px;
@@ -173,15 +240,88 @@ body,html{
 	transition: 1s ease-out all;
 
 	&.buffering{
-		background:red;
+		//background:red;
+	}
+
+	.card-title{
+		height: 50px;
+		margin:0;
+		text-align:center;
+		font-size: 31px;
+		font-family: 'Open Sans Condensed',sans-serif;
+		background-color: @orange;
+		color:white;
+		line-height: 50px;
+		text-align:center;
+		text-transform:uppercase;
+
+
+	}
+	
+	.ddicon-info{
+		position:absolute;
+		top:16px;
+		right:16px;
+		font-size: 20px;
+		pointer-events: none;
+	}
+
+	.card-description{
+		display:none;
+		height: 223px;
+		position:absolute;
+		z-index:99999999999999;
+
+		left:0;
+		right:0;
+		padding:20px;
+
+		background:@orange;
+
+		p{
+			position:relative;
+			margin-left: 20px;
+
+			&::before{
+				content: "\e900";
+				font-family: "drilldeck";
+				position: absolute;
+				left:-10px;
+				top:5px;
+
+				color:black;
+				font-size: 9px;
+			}
+		}
+
+	}
+
+	.card-type{
+		height: 18px;
+		margin:0;
+
+		font-size: 11px;
+		line-height: 18px;
+		font-weight: bold;
+		text-align:center;
+
+		text-transform:uppercase;
+		background-color:#B3B6B6;
+		color: @dark;
 	}
 
 	.card-animation{
 		
 
 		.animation{
-			height: 300px;
 			position: relative;
+			height: 223px;
+
+			background-image: url('../img/floor.png');
+			background-size: 100% auto;
+			background-position: center bottom;
+			background-repeat: no-repeat;
+			background-color:white;
 
 			.animation-frame{
 				position: absolute;
@@ -196,11 +336,7 @@ body,html{
 			}
 		}
 
-		.card-title{
-			margin:0;
-			text-align:center;
-			font-size: 18px;
-		}
+
 
 	}
 
@@ -211,12 +347,12 @@ body,html{
 	}
 
 	&:nth-child(2){
-		top:60px;
+		top:45px;
 		transform: scale(.9);
 	}
 
 	&:nth-child(1){
-		top:20px;
+		top:10px;
 		transform: scale(.8);
 	}
 
@@ -235,15 +371,16 @@ body,html{
 	right:0;
 	height: 40px;
 
-	background:white;
+	background:@dark;
 
 	.btn-end{
 		display:inline-block;
 		margin: 10px;
 		width: 20px;
 		line-height: 15px;
-		font-size:28px;
+		font-size:20px;
 		text-align:center;
+		color:@middle;
 	}
 
 	.workout-timer-total{
@@ -251,19 +388,20 @@ body,html{
 		right:0;
 		top:0;
 		left:30px;
-		margin: 10px;
-		height: 20px;
+		margin: 15px;
+		height: 10px;
 
-		background:blue;
+		background:#363D3E;
 
 		.workout-timer-elapsed{
-			display:inline-block;
+			display:block;
 			width:0;
-			height: 20px;
+			height: 10px;
 
 			transition: 1s all;
 
-			background-color: orange;
+			background-color: @orange;
+			float:left;
 
 		}
 	}
@@ -327,9 +465,171 @@ body,html{
 	}
 
 	&#endModal{
-		
+		.modal-content{
+			background:none;
+		}
+		.modal-dialog{
+			background-image: url('../img/stretching.jpg');
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			background-position: top center;
+			background-attachment: fixed;
+		}
+		.modal-footer{
+			padding:0;
+			position: fixed;
+			bottom:0;
+			right:0;
+			left:0;
+
+		}
+
+		.modal-body{
+			text-align:center;
+			h2{
+				color:white;
+				font-size: 50px;
+				font-family: 'Open Sans Condensed', sans-serif;
+				text-align:center;
+			}
+
+			h3{
+				color:@blue;
+				font-size: 21px;
+				font-weight: 600;
+			}
+
+			p{
+				color: #bcc6c7;
+				font-size: 16px;
+			}
+
+			.endBox{
+				display:inline-block;
+				position:relative;
+				width: 160px;
+				height: 160px;
+
+				border: 1px solid @uigray;
+				border-radius: 8px;
+				background-color: rgba(0,0,0,.3);
+
+				font-family: 'Open Sans', sans-serif;
+				font-size: 14px;
+				font-weight: 600;
+				color:white;
+				text-transform:uppercase;
+
+				.endBox-focusArea{
+					position:absolute;
+					width:50%;
+					height:100%;
+					padding: 12px;
+
+					border-right: 1px solid @uigray;
+					text-align:center;
+
+					.endBox-focusArea-image{
+						display:inline-block;
+						width: 100%;
+					}
+
+					h5{
+						margin-top: 5px;
+					}
+
+				}
+
+				.endBox-intensity{
+					position:absolute;
+					right:0;
+					padding:12px;
+					padding-top: 20px;
+					width:50%;
+					height:50%;
+					border-bottom: 1px solid @uigray;
+
+					.ddicon{
+						color:@blue;
+						font-size: 20px;
+						margin-right:4px;
+
+						&:last-child{
+							margin-right:0;
+						}
+					}
+
+				}
+
+				.endBox-time{
+					position:absolute;
+					right:0;
+					bottom:0;
+					padding:12px;
+					width:50%;
+					height:50%;
+
+					.endBox-time-number{
+						font-size: 28px;
+						line-height: 28px
+					}
+
+				}
+			}
+		}
 	}
 
+}
+
+#pauseModal{
+
+	.modal-dialog{
+		margin:20px;
+	}
+
+	.modal-body{
+		h3{
+			font-size:50px;
+			font-family: 'Open Sans Condensed',sans-serif;
+			text-transform:uppercase;
+			color:#6d7a7a;
+			text-align:center;
+			margin:5px;
+		}
+
+		h4{
+			font-family: 'Open Sans', sans-serif;
+			font-size: 21px;
+			color: @blue;
+			text-align:center;
+			font-weight:600;
+		}
+
+		p{
+			font-size: 16px;
+			color: #6d7a7a;
+		}
+	}
+
+	.modal-footer{
+		padding:0;
+
+		.btn{
+			background-color: @blue;
+		}
+
+		.btn-pause-end{
+			position: absolute;
+			bottom:-30px;
+			left: 50%;
+			transform: translateX(-50%);
+			text-decoration:underline;
+
+			color:white;
+
+
+		}
+	}
 }
 
 
@@ -339,8 +639,37 @@ body,html{
 // ====================================
 
 
-.donut{
-	display:none
+canvas{
+	border-radius:65px;
+	box-shadow:0 0 25px 10px #fff;
+	background-color:white;
+}
+
+.card-timer-wrapper{
+	position:absolute;
+	margin-top:20px;
+	transform:translateX(-50%);
+	left:50%;
+	width: 130px;
+	height: 130px;
+
+	.card-timer{
+		display:none;
+	}
+
+	.card-timer-time{
+		color:@dark;
+		position:absolute;
+		display:block;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		line-height:130px;
+		text-align:center;
+		font-size:40px;
+		
+	}
 }
 
 

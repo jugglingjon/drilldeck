@@ -3,29 +3,285 @@ var currentCard=0,
 	deckCycle=1;
 
 var cards={
-	"upper":[
-	{"name":"Upper 1","frames":["chairsit1.png","chairsit2.png"]},
-	{"name":"Upper 2","frames":["1.png","2.png"]},
-	{"name":"Upper 3","frames":["chairsit1.png","chairsit2.png"]},
-	{"name":"Upper 4","frames":["1.png","2.png"]}
+	"upper": [
+	{
+		"name": "Upper 1",
+		"frames": [
+			"chairsit1.png",
+			"chairsit2.png"
+		],
+		"type": "Upper Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Upper 2",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Upper Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Upper 3",
+		"frames": [
+			"chairsit1.png",
+			"chairsit2.png"
+		],
+		"type": "Upper Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Upper 4",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Upper Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	}
 	],
-	"core":[
-	{"name":"Core 1","frames":["1.png","2.png"]},
-	{"name":"Core 2","frames":["1.png","2.png"]},
-	{"name":"Core 3","frames":["1.png","2.png"]},
-	{"name":"Core 4","frames":["1.png","2.png"]}
+	"core": [
+	{
+		"name": "Core 1",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Core",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Core 2",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Core",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Core 3",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Core",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Core 4",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Core",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	}
 	],
-	"lower":[
-	{"name":"Lower 1","frames":["1.png","2.png"]},
-	{"name":"Lower 2","frames":["1.png","2.png"]},
-	{"name":"Lower 3","frames":["1.png","2.png"]},
-	{"name":"Lower 4","frames":["1.png","2.png"]}
+	"lower": [
+	{
+		"name": "Lower 1",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Lower Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Lower 2",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Lower Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Lower 3",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Lower Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Lower 4",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Lower Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	}
 	],
-	"fullbody":[
-	{"name":"Full Body 1","frames":["1.png","2.png"]},
-	{"name":"Full Body 2","frames":["1.png","2.png"]},
-	{"name":"Full Body 3","frames":["1.png","2.png"]},
-	{"name":"Full Body 4","frames":["1.png","2.png"]}
+	"fullbody": [
+	{
+		"name": "Full Body 1",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Full Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Full Body 2",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Full Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Full Body 3",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Full Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	},
+	{
+		"name": "Full Body 4",
+		"frames": [
+			"1.png",
+			"2.png"
+		],
+		"type": "Full Body",
+		"description": [
+			"Description line 1",
+			"Description line 2"
+		],
+		"target":[
+			"Biceps",
+			"Shoulders",
+			"Triceps"
+		]
+	}
 	]
 };
 
@@ -42,6 +298,7 @@ function shuffle(a) {
 
 //converts seconds to min:sec
 function minSec(time){
+	time=Math.floor(time);
 	var minutes=Math.floor(time/60);
 	var seconds=time - minutes *60;
 	if (seconds<10){
@@ -61,7 +318,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=1000,
+var ms=100000,
 	timeRemaining=0,
 	donutSeconds=0;
 	state='buffer'
@@ -83,6 +340,12 @@ function log(message){
 //show card
 function showCard(){
 	$('.frontCard:first .card-title').text(deck[currentCard].name);
+	$('.frontCard:first .card-type').text(deck[currentCard].type+' Workout');
+
+	$.each(deck[currentCard].description,function(){
+		$('.frontCard:first .card-description').append('<p>'+this+'</p>');
+	});
+
 	$('.card').show();
 }
 
@@ -140,29 +403,31 @@ function startBuffer(gapTime){
 	var seconds=0;
 	activeCard.find('.card-timer').knob({
 		readOnly : true,
-		thickness : .2,
+		thickness : .15,
 		max : 10,
-		width: 100,
-		height: 100,
+		width: 130,
+		height: 130,
 		step: .1,
-		bgColor: '#1C1C1C',
-		fgColor: '#FFD081',
+		bgColor: '#E0E0E0',
+		fgColor: '#EF832C',
 		displayInput: false
 	});
 	console.log()
 	activeCard.find('.card-timer').val(buffer-seconds).trigger('change');
+	activeCard.find('.card-timer-time').text(minSec(buffer-seconds));
 	bufferTimer=setInterval(function(){
 		
-		seconds+=.1;
-		workTime+=.1;
+		seconds++;
+		workTime++;
 		updateWorkoutTimer();
 		activeCard.find('.card-timer').val(buffer-seconds).trigger('change');
+		activeCard.find('.card-timer-time').text(minSec(buffer-seconds));
 		timeRemaining=(buffer-seconds);
 		//console.log(seconds);
 		if(seconds>=buffer){
 			clearInterval(bufferTimer);
 		}
-	},ms/10);
+	},ms);
 
 
 	bufferTimeout=window.setTimeout(function(){
@@ -188,15 +453,15 @@ function advanceCards(){
 
 	$('.card').eq(1).addClass('frontCard').css({
 		"transform":"scale(1)",
-		"top":"100px"
+		"top":"80px"
 	});
 
 	$('.card').eq(0).css({
 		"transform":"scale(.9)",
-		"top":"60px"
+		"top":"45px"
 	}).clone().prependTo('.cards').css({
 		"transform":"scale(.8)",
-		"top":"20px"
+		"top":"10px"
 	});
 
 	setTimeout(function(){
@@ -226,31 +491,27 @@ function startExercise(gapTime){
         'configure',
         {
             readOnly : true,
-			thickness : .2,
-			max : 30,
-			width: 100,
-			height: 100,
-			bgColor: '#1C1C1C',
-			fgColor: '#FFD081',
-			displayInput: false
+			max : 30
         }
     );
 
 
 	var seconds=0;
 	activeCard.find('.card-timer').val(exTime-seconds).trigger('change');
+	activeCard.find('.card-timer-time').text(minSec(exTime-seconds));
 	currentTimer=setInterval(function(){
-		seconds+=.1;
-		workTime+=.1;
+		seconds++;
+		workTime++;
 		updateWorkoutTimer();
 		activeCard.find('.card-timer').val(exTime-seconds).trigger('change');
+		activeCard.find('.card-timer-time').text(minSec(exTime-seconds));
 		timeRemaining=exTime-seconds;
 		//console.log(seconds);
 		if(seconds>=timerTime){
 			clearInterval(currentTimer);
 			clearInterval(animationTimer);
 		}
-	},ms/10);
+	},ms);
 
 	exerciseTimeout=window.setTimeout(function(){
 		//workTime+=exTime;
@@ -284,6 +545,25 @@ function end(){
 
 
 	//populate open end modal window
+	
+
+	switch(parseInt(getChecked('[name="sweat-set"]')[0])/30){
+		case 1:
+			$('.endBox-intensity-title').text('Low');
+			$('.endBox-intensity-drops').html('<i class="ddicon ddicon-drop"></i>');
+			break;
+		case 2:
+			$('.endBox-intensity-title').text('Medium');
+			$('.endBox-intensity-drops').html('<i class="ddicon ddicon-drop"></i><i class="ddicon ddicon-drop"></i>');
+			break;
+		case 3:
+			$('.endBox-intensity-title').text('High');
+			$('.endBox-intensity-drops').html('<i class="ddicon ddicon-drop"></i><i class="ddicon ddicon-drop"></i><i class="ddicon ddicon-drop"></i>');
+			break;
+	}
+
+	$('.endBox-time-number').text(minSec(workTime));
+
 	$('#endModal .end-elapsed').text(minSec(workTime));
 	$('#endModal .end-sweat').text(parseInt(getChecked('[name="sweat-set"]')[0])/30);
 	$('#endModal .end-body').text(getChecked('[name="body-set"]').join(','));
@@ -402,7 +682,7 @@ $(document).ready(function(){
 		window.clearTimeout(exerciseTimeout);
 		window.clearTimeout(bufferTimeout);
 
-		$('#pauseModal').modal();
+		$('#pauseModal').modal({backdrop:'static'});
 		console.log(state,timeRemaining);
 	});
 
@@ -414,12 +694,14 @@ $(document).ready(function(){
 			var seconds=0;
 
 			activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
+			activeCard.find('.card-timer-time').text(minSec(originalTimeRemaining-seconds));
 			bufferTimer=setInterval(function(){
 				
 				seconds++;
 				workTime++;
 				updateWorkoutTimer();
 				activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
+				activeCard.find('.card-timer-time').text(minSec(originalTimeRemaining-seconds));
 				timeRemaining=(originalTimeRemaining-seconds);
 				//console.log(seconds);
 				if(seconds>=originalTimeRemaining){
@@ -445,11 +727,13 @@ $(document).ready(function(){
 
 			var seconds=0;
 			activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
+			activeCard.find('.card-timer-time').text(minSec(originalTimeRemaining-seconds));
 			currentTimer=setInterval(function(){
 				seconds++;
 				workTime++;
 				updateWorkoutTimer();
 				activeCard.find('.card-timer').val(originalTimeRemaining-seconds).trigger('change');
+				activeCard.find('.card-timer-time').text(minSec(originalTimeRemaining-seconds));
 				timeRemaining=exTime-seconds;
 				//console.log(seconds);
 				if(seconds>=originalTimeRemaining){
@@ -485,5 +769,14 @@ $(document).ready(function(){
 	$('.btn-end').click(function(){
 		end();
 		return false;
+	});
+	$('.btn-pause-end').click(function(){
+		$('#pauseModal').modal('hide');
+		end();
+		return false;
+	});
+
+	$('.cards').on('click','.card-title',function(){
+		$('.frontCard').first().find('.card-description').slideToggle();
 	});
 });

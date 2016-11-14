@@ -30,10 +30,12 @@ Examples:
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
+@import "fonts.css";
 body,
 html {
-  font-size: 16px;
+  font-size: 14px;
   background-color: #363D3F;
+  font-family: 'Open Sans', sans-serif;
 }
 .nav-bottom {
   position: fixed;
@@ -50,17 +52,43 @@ html {
 }
 .btn {
   border-radius: 0;
-  height: 80px;
+  height: 74px;
   padding: 0;
-  line-height: 80px;
+  line-height: 74px;
   background-color: #EF832C;
   color: white;
   border: 0;
-  font-size: 1.625rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 2.28571429rem;
   text-transform: uppercase;
 }
-#settings {
+.btn-rounded {
+  display: inline-block;
+  padding: 0px 16px;
+  border: 1px solid #4898D4;
+  height: 36px;
+  border-radius: 18px;
+  margin: 10px 0 20px 0;
+  text-transform: uppercase;
   text-align: center;
+  color: #4898D4;
+  line-height: 36px;
+}
+.workout .btn {
+  background-color: #6F7B7B;
+}
+#settings {
+  color: white;
+  text-align: center;
+}
+#settings .logo {
+  color: #EF832C;
+  font-size: 26px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+#settings p {
+  color: #D4DCDB;
 }
 #settings h4 {
   color: #6E7B7B;
@@ -72,15 +100,24 @@ html {
 }
 #settings .set-label {
   display: inline-block;
-  height: 75px;
   min-width: 70px;
-  padding: 0 0.9375rem;
+  padding: 0.9375rem 0.9375rem;
   background-color: transparent;
   color: white;
   border: 1px solid #6E7B7B;
   border-right: 0;
-  line-height: 75px;
+  font-weight: 600;
   text-align: center;
+  text-transform: uppercase;
+}
+#settings .set-label .ddicon-drop {
+  color: #4898D4;
+  font-size: 24px;
+  margin: 0 3px;
+}
+#settings .set-label span.input_sub {
+  display: block;
+  font-size: 1rem;
 }
 #settings .set-label:first-of-type {
   border-radius: 4px 0 0 4px;
@@ -89,14 +126,25 @@ html {
   border-radius: 0px 4px 4px 0;
   border-right: 1px solid #6E7B7B;
 }
+#settings .set-label img {
+  width: 45px;
+  margin: 0;
+}
+#settings .input-set-focus .set-label {
+  text-align: center;
+}
 #settings .set-input:checked + .set-label {
   background: #232929;
+}
+#settings .input-set-times {
+  font-size: 2.35rem;
+  line-height: 75%;
 }
 .card {
   display: none;
   position: fixed;
-  background: green;
-  top: 100px;
+  background-color: #E0E0E0;
+  top: 80px;
   left: 20px;
   right: 20px;
   height: 460px;
@@ -105,12 +153,66 @@ html {
   -webkit-transition: 1s ease-out all;
   transition: 1s ease-out all;
 }
-.card.buffering {
-  background: red;
+.card .card-title {
+  height: 50px;
+  margin: 0;
+  font-size: 31px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #EF832C;
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.card .ddicon-info {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 20px;
+  pointer-events: none;
+}
+.card .card-description {
+  display: none;
+  height: 223px;
+  position: absolute;
+  z-index: 99999999999999;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: #EF832C;
+}
+.card .card-description p {
+  position: relative;
+  margin-left: 20px;
+}
+.card .card-description p::before {
+  content: "\e900";
+  font-family: "drilldeck";
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  color: black;
+  font-size: 9px;
+}
+.card .card-type {
+  height: 18px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #B3B6B6;
+  color: #232929;
 }
 .card .card-animation .animation {
-  height: 300px;
   position: relative;
+  height: 223px;
+  background-image: url('../img/floor.png');
+  background-size: 100% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-color: white;
 }
 .card .card-animation .animation .animation-frame {
   position: absolute;
@@ -122,23 +224,18 @@ html {
 .card .card-animation .animation .animation-frame.animation-frame-visible {
   opacity: 1;
 }
-.card .card-animation .card-title {
-  margin: 0;
-  text-align: center;
-  font-size: 18px;
-}
 .card .card-timer {
   margin-top: 20px;
   text-align: center;
   font-size: 22px;
 }
 .card:nth-child(2) {
-  top: 60px;
+  top: 45px;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 .card:nth-child(1) {
-  top: 20px;
+  top: 10px;
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
 }
@@ -148,32 +245,34 @@ html {
   left: 0;
   right: 0;
   height: 40px;
-  background: white;
+  background: #232929;
 }
 .workout-timer .btn-end {
   display: inline-block;
   margin: 10px;
   width: 20px;
   line-height: 15px;
-  font-size: 28px;
+  font-size: 20px;
   text-align: center;
+  color: #D4DCDB;
 }
 .workout-timer .workout-timer-total {
   position: absolute;
   right: 0;
   top: 0;
   left: 30px;
-  margin: 10px;
-  height: 20px;
-  background: blue;
+  margin: 15px;
+  height: 10px;
+  background: #363D3E;
 }
 .workout-timer .workout-timer-total .workout-timer-elapsed {
-  display: inline-block;
+  display: block;
   width: 0;
-  height: 20px;
+  height: 10px;
   -webkit-transition: 1s all;
   transition: 1s all;
-  background-color: orange;
+  background-color: #EF832C;
+  float: left;
 }
 .controls {
   position: fixed;
@@ -203,6 +302,162 @@ html {
 .modal .modal-dialog .modal-content .modal-footer {
   border: 0;
 }
-.donut {
+.modal#endModal .modal-content {
+  background: none;
+}
+.modal#endModal .modal-dialog {
+  background-image: url('../img/stretching.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: top center;
+  background-attachment: fixed;
+}
+.modal#endModal .modal-footer {
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.modal#endModal .modal-body {
+  text-align: center;
+}
+.modal#endModal .modal-body h2 {
+  color: white;
+  font-size: 50px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
+}
+.modal#endModal .modal-body h3 {
+  color: #4898D4;
+  font-size: 21px;
+  font-weight: 600;
+}
+.modal#endModal .modal-body p {
+  color: #bcc6c7;
+  font-size: 16px;
+}
+.modal#endModal .modal-body .endBox {
+  display: inline-block;
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #6d7a7a;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+.modal#endModal .modal-body .endBox .endBox-focusArea {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  padding: 12px;
+  border-right: 1px solid #6d7a7a;
+  text-align: center;
+}
+.modal#endModal .modal-body .endBox .endBox-focusArea .endBox-focusArea-image {
+  display: inline-block;
+  width: 100%;
+}
+.modal#endModal .modal-body .endBox .endBox-focusArea h5 {
+  margin-top: 5px;
+}
+.modal#endModal .modal-body .endBox .endBox-intensity {
+  position: absolute;
+  right: 0;
+  padding: 12px;
+  padding-top: 20px;
+  width: 50%;
+  height: 50%;
+  border-bottom: 1px solid #6d7a7a;
+}
+.modal#endModal .modal-body .endBox .endBox-intensity .ddicon {
+  color: #4898D4;
+  font-size: 20px;
+  margin-right: 4px;
+}
+.modal#endModal .modal-body .endBox .endBox-intensity .ddicon:last-child {
+  margin-right: 0;
+}
+.modal#endModal .modal-body .endBox .endBox-time {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 12px;
+  width: 50%;
+  height: 50%;
+}
+.modal#endModal .modal-body .endBox .endBox-time .endBox-time-number {
+  font-size: 28px;
+  line-height: 28px;
+}
+#pauseModal .modal-dialog {
+  margin: 20px;
+}
+#pauseModal .modal-body h3 {
+  font-size: 50px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-transform: uppercase;
+  color: #6d7a7a;
+  text-align: center;
+  margin: 5px;
+}
+#pauseModal .modal-body h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 21px;
+  color: #4898D4;
+  text-align: center;
+  font-weight: 600;
+}
+#pauseModal .modal-body p {
+  font-size: 16px;
+  color: #6d7a7a;
+}
+#pauseModal .modal-footer {
+  padding: 0;
+}
+#pauseModal .modal-footer .btn {
+  background-color: #4898D4;
+}
+#pauseModal .modal-footer .btn-pause-end {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-decoration: underline;
+  color: white;
+}
+canvas {
+  border-radius: 65px;
+  box-shadow: 0 0 25px 10px #fff;
+  background-color: white;
+}
+.card-timer-wrapper {
+  position: absolute;
+  margin-top: 20px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  left: 50%;
+  width: 130px;
+  height: 130px;
+}
+.card-timer-wrapper .card-timer {
   display: none;
+}
+.card-timer-wrapper .card-timer-time {
+  color: #232929;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 130px;
+  text-align: center;
+  font-size: 40px;
 }
