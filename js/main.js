@@ -318,7 +318,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=1000,
+var ms=100000,
 	timeRemaining=0,
 	donutSeconds=0;
 	state='buffer'
@@ -345,6 +345,9 @@ function showCard(){
 	$.each(deck[currentCard].description,function(){
 		$('.frontCard:first .card-description').append('<p>'+this+'</p>');
 	});
+
+	var targets=deck[currentCard].target.join(', ');
+	$('.frontCard:first .card-description-target').append(targets);
 
 	$('.card').show();
 }
