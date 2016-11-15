@@ -318,7 +318,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=100000,
+var ms=1000,
 	timeRemaining=0,
 	donutSeconds=0;
 	state='buffer'
@@ -627,10 +627,24 @@ function combineArrays(array){
 
 $(document).ready(function(){
 
-	
+	//scan radios for sufficient checked, add or remove disabled class
+	function assessButtons(){
+		if($('input[name=time-set]:checked').length>=1&&$('input[name=sweat-set]:checked').length>=1&&$('input[name=body-set]:checked').length>=1){
+			$('#btn-go').removeClass('disabled');
+		}
+		else{
+			$('#btn-go').addClass('disabled');
+		}
+	};
+	assessButtons();
+
+	//assess go button state
+	$('.set-input').change(function(){
+		assessButtons();
+	});
 
 	//go button clicked
-	$('#btn-go').click(function(){
+	$('body').on('click','#btn-go:not(".disabled")',function(){
 
 		$('.settings').fadeOut(function(){
 			$('.workout').fadeIn(function(){

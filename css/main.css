@@ -62,6 +62,9 @@ html {
   font-size: 2.28571429rem;
   text-transform: uppercase;
 }
+.btn.disabled {
+  background-color: #6d7a7a;
+}
 .btn-rounded {
   display: inline-block;
   padding: 0px 16px;
