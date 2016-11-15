@@ -461,9 +461,7 @@ html {
   color: white;
 }
 canvas {
-  border-radius: 65px;
-  box-shadow: 0 0 25px 10px #fff;
-  background-color: white;
+  display: none;
 }
 .card-timer-wrapper {
   position: absolute;
@@ -473,6 +471,9 @@ canvas {
   left: 50%;
   width: 130px;
   height: 130px;
+  border-radius: 65px;
+  box-shadow: 0 0 25px 10px #fff;
+  background-color: white;
 }
 .card-timer-wrapper .card-timer {
   display: none;
@@ -488,4 +489,22 @@ canvas {
   line-height: 130px;
   text-align: center;
   font-size: 40px;
+}
+.card .card-timer-wrapper::before {
+  content: 'Starting in..';
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: 0.5s ease-out all;
+  transition: 0.5s ease-out all;
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+.card.buffering .card-timer-wrapper::before {
+  opacity: 1;
 }

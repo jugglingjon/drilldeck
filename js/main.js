@@ -417,14 +417,14 @@ function startBuffer(gapTime){
 	});
 	console.log()
 	activeCard.find('.card-timer').val(buffer-seconds).trigger('change');
-	activeCard.find('.card-timer-time').text(minSec(buffer-seconds));
+	activeCard.find('.card-timer-time').text(buffer-seconds);
 	bufferTimer=setInterval(function(){
 		
 		seconds++;
 		workTime++;
 		updateWorkoutTimer();
 		activeCard.find('.card-timer').val(buffer-seconds).trigger('change');
-		activeCard.find('.card-timer-time').text(minSec(buffer-seconds));
+		activeCard.find('.card-timer-time').text(buffer-seconds);
 		timeRemaining=(buffer-seconds);
 		//console.log(seconds);
 		if(seconds>=buffer){
@@ -497,6 +497,7 @@ function startExercise(gapTime){
 			max : 30
         }
     );
+    activeCard.find('canvas').fadeIn();
 
 
 	var seconds=0;
