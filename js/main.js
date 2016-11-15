@@ -318,7 +318,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=1000,
+var ms=100,
 	timeRemaining=0,
 	donutSeconds=0;
 	state='buffer'
@@ -494,7 +494,7 @@ function startExercise(gapTime){
         'configure',
         {
             readOnly : true,
-			max : 30
+			max : exTime
         }
     );
     activeCard.find('canvas').fadeIn();
