@@ -3,286 +3,292 @@ var currentCard=0,
 	deckCycle=1;
 
 var cards={
-	"upper": [
-	{
-		"name": "Upper 1",
+	"upper": [{
+		"name": "Chair Dips",
 		"frames": [
-			"chairsit1.png",
-			"chairsit2.png"
+			"Chair-sit-1.png",
+			"Chair-sit-2.png"
 		],
 		"type": "Upper Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Hold onto chair edge. Slide your butt off the seat and hold yourself up with your arms straight.",
+			"Bend your elbows as you lower your body for 2 seconds. Push up, straightening your arms for 2 seconds."
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Triceps",
+			"Forearms",
+			"Chest",		
+			"Shoulders"
 		]
 	},
 	{
-		"name": "Upper 2",
+		"name": "Push-ups",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Push-Ups-1.png",
+			"Push-Ups-2.png"
 		],
 		"type": "Upper Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Lay face down on the floor.",
+			"Tuck hands under shoulders and push up.",
+			"Lower your body until your chest almost touches the floor, keeping your back flat, and push back up."
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Deltoids",
+			"Triceps",
+			"Abdominals"
 		]
 	},
 	{
-		"name": "Upper 3",
+		"name": "Arm Circles",
 		"frames": [
-			"chairsit1.png",
-			"chairsit2.png"
+			"Arm-Circle-Backward-1.png",
+			"Arm-Circle-Backward-2.png",
+			"Arm-Circle-Backward-3.png",
+			"Arm-Circle-Backward-4.png",
+			"Arm-Circle-Forward-1.png",
+			"Arm-Circle-Forward-2.png",
+			"Arm-Circle-Forward-3.png",
+			"Arm-Circle-Forward-4.png"
 		],
 		"type": "Upper Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Standing, extend arms out to your side.",
+			"Make small circles with your outstretched arms for preferred amount of time.",
+			"Repeat in the opposite direction for the same amount of time."
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Deltoids",
+			"Rotator Cuff Muscles"
 		]
 	},
 	{
-		"name": "Upper 4",
+		"name": "Reverse Plank",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Reverse-Plank-1.png",
+			"Reverse-Plank-2.png"
 		],
 		"type": "Upper Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Sit with your legs extended in front of you, and place your palms on the ground below your shoulders.",
+			"Push up into a reverse plank with your arms and legs extended, squeezing butt and thighs."
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Deltoids",
+			"Lower Back"
 		]
-	}
-	],
-	"core": [
-	{
-		"name": "Core 1",
+	}],
+	"core": [{
+		"name": "Plank",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Plank.png"
 		],
 		"type": "Core",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Lay face down on floor. Push up onto forearms, squeezing abs and glutes.",
+			"Keep your neck and spine in a neutral position, looking at a spot about 1 foot beyond your hands."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Abdominals",
+			"Obliques"
 		]
 	},
 	{
-		"name": "Core 2",
+		"name": "Heel Touches",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Heel-Touch-1.png",
+			"Heel-Touch-2.png"
 		],
 		"type": "Core",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Lay on back with your arms by your side. Raise shoulders slightly on the ground.",
+			"With your core engaged, reach your right hand down to your right foot and then back to center.",
+			"Repeat with left hand and left foot. Do preferred number of reps on each side."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Abdominals",
+			"Obliques"
 		]
 	},
 	{
-		"name": "Core 3",
+		"name": "Reverse Crunches",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Reverse-Crunch-1.png",
+			"Reverse-Crunch-2.png"
 		],
 		"type": "Core",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Lay on your back. Lift your legs so they form a 90° angle with the floor, keeping feet together.",
+			"While inhaling, move your legs towards your torso as you roll your pelvis backwards and you raise your hips on the floor.",
+			"Hold for 1 second, then exhale while moving back to starting position."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Abdominals"
 		]
 	},
 	{
-		"name": "Core 4",
+		"name": "Core Twists",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Core-Twist-1.png",
+			"Core-Twist-2.png",
+			"Core-Twist-3.png",
+			"Core-Twist-4.png",
+			"Core-Twist-5.png"
 		],
 		"type": "Core",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Sit on the floor with your knees bent and your feet flat on the ground.",
+			"Tilt back so your torso is at a 45° angle to floor and your feet are slightly lifted.",
+			"Lace your hands and rotate arms from left to right for each rep."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Abdominals",
+			"Obliques"
 		]
-	}
-	],
+	}],
 	"lower": [
-	{
-		"name": "Lower 1",
+		{
+		"name": "High Knees",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Knee-High-1.png",
+			"Knee-High-2.png"
 		],
 		"type": "Lower Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Quickly jump from one foot to the other, lifting each knee to hip height."
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Quadriceps",
+			"Calves",
+			"Glutes"
 		]
 	},
 	{
-		"name": "Lower 2",
+		"name": "Wall-sit",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Wall-sit-1.png",
+			"Wall-sit-2.png"
 		],
 		"type": "Lower Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Stand with your back against a wall and your feet about 2 feet in front of you.",
+			"Slide down until knees are at a 90° angle. Hold in place, keeping abs tight."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Quadriceps",
+			"Hamstrings"
 		]
 	},
 	{
-		"name": "Lower 3",
+		"name": "Lunges",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Lunges-1.png",
+			"Lunges-2.png",
+			"Lunges-3.png",
+			"Lunges-4.png"
 		],
 		"type": "Lower Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Step forward with one leg, lowering hips until both knees are at a 90° angle.",
+			"Be sure your front knee is directly above your ankle and the other knee isn’t touching the floor.",
+			"Push back up to starting position and repeat on the other side. Do preferred number of reps on each side."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Hamstrings",
+			"Quadriceps",
+			"Glutes"
 		]
 	},
 	{
-		"name": "Lower 4",
+		"name": "Squats",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Squats-1.png",
+			"Squats-2.png"
 		],
 		"type": "Lower Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Stand up straight with feet hip-width apart. Slowly lower your body by pushing hips back and bending knees, sinking your weight into heels.",
+			"Keep your spine straight and never let your knees go over your toes.",
+			"Pause and then lift back up in a controlled movement to the starting position."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Hip Flexors",
+			"Glutes",
+			"Hamstrings",
+			"Calves",
+			"Quadriceps",
+			"Adductors"
 		]
-	}
-	],
-	"fullbody": [
-	{
-		"name": "Full Body 1",
+	}],
+	"fullbody": [{
+		"name": "Burpees",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Burpee-1.png",
+			"Burpee-2.png",
+			"Burpee-3.png",
+			"Burpee-4.png",
+			"Burpee-5.png"
 		],
 		"type": "Full Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Bend down to touch the floor and kick your feet back so you are in push-up position.",
+			"Do a push-up.",
+			"Stand up, then jump into the air reaching your arms overhead."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Full Body"
 		]
 	},
 	{
-		"name": "Full Body 2",
+		"name": "Star Jumps",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Star-Jump-1.png",
+			"Star-Jump-2.png",
+			"Star-Jump-3.png"
 		],
 		"type": "Full Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Jump to fully extend your body, stretching out your legs and arms.",
+			"As you land, bring your limbs back in and slightly bend your knees to absorb the impact through your legs.",
+			"Quickly jump back to standing position and repeat in-air motions."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Full Body"
 		]
 	},
 	{
-		"name": "Full Body 3",
+		"name": "Jumping Jacks",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Jumping-Jacks-1.png",
+			"Jumping-Jacks-2.png",
+			"Jumping-Jacks-3.png"
 		],
 		"type": "Full Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Slightly bend your knees and jump up while moving your legs outward and raising your arms overhead.",
+			"Quickly jump back to standing position."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Full Body"
 		]
 	},
 	{
-		"name": "Full Body 4",
+		"name": "Climber",
 		"frames": [
-			"1.png",
-			"2.png"
+			"Climber-1.png",
+			"Climber-2.png",
+			"Climber-3.png",
+			"Climber-4.png"
 		],
 		"type": "Full Body",
 		"description": [
-			"Description line 1",
-			"Description line 2"
+			"Start in push-up position. Lift your right foot on the floor and slowly raise your knee as close to your chest as you can, keeping your back straight.",
+			"Return to the starting position and repeat with your left leg. Do preferred number of reps on each side."		
 		],
 		"target":[
-			"Biceps",
-			"Shoulders",
-			"Triceps"
+			"Full Body"
 		]
-	}
-	]
+	}]
 };
 
 //array shuffle function
@@ -318,7 +324,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=100,
+var ms=1000,
 	timeRemaining=0,
 	donutSeconds=0;
 	state='buffer'
@@ -546,6 +552,10 @@ function startExercise(gapTime){
 //workout complete
 function end(){
 	log('done');
+
+	if(workTime>=timeSecs-1&&workTime<=timeSecs+1){
+		workTime=timeSecs;
+	}
 
 
 	//populate open end modal window

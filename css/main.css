@@ -420,7 +420,7 @@ html {
   height: 50%;
 }
 .modal#endModal .modal-body .endBox .endBox-time .endBox-time-number {
-  font-size: 28px;
+  font-size: 22px;
   line-height: 28px;
 }
 #pauseModal .modal-dialog {
