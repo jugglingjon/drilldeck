@@ -637,14 +637,23 @@ function combineArrays(array){
 
 
 $(document).ready(function(){
+	function restoreSettings(settings){
+		$.each(settings,function(){
+			$('.set-input').eq(this).attr('checked','checked');
+		});
+	}
+
+	if(localStorage.getItem('DDsettings')){
+		restoreSettings(JSON.parse(localStorage.getItem('DDsettings')));
+	}
 
 	//scan radios for sufficient checked, add or remove disabled class
 	function assessButtons(){
 		if($('input[name=time-set]:checked').length>=1&&$('input[name=sweat-set]:checked').length>=1&&$('input[name=body-set]:checked').length>=1){
-			$('#btn-go').removeClass('disabled');
+			$('#btn-go').removeClass('disabled').text('I\'m ready, let\'s go!');
 		}
 		else{
-			$('#btn-go').addClass('disabled');
+			$('#btn-go').addClass('disabled').text('Pick your settings');
 		}
 	};
 	assessButtons();
@@ -656,6 +665,13 @@ $(document).ready(function(){
 
 	//go button clicked
 	$('body').on('click','#btn-go:not(".disabled")',function(){
+
+		//store settings
+		var settingsArray=[];
+		$('.set-input:checked').each(function(){
+			settingsArray.push($('.set-input').index($(this)));
+		});
+		localStorage.setItem('DDsettings',JSON.stringify(settingsArray));
 
 		$('.settings').fadeOut(function(){
 			$('.workout').fadeIn(function(){
