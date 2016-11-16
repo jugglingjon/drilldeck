@@ -58,6 +58,14 @@ body,html{
 	font-family: 'Open Sans', sans-serif;
 }
 
+*:active,*:hover{
+	text-decoration:none;
+}
+
+p a{
+	color: @blue;
+}
+
 
 .nav-bottom{
 	position: fixed;
@@ -113,24 +121,36 @@ body,html{
 	background-color: #6F7B7B;
 }
 
+.logo{
+	color: @orange;
+	font-size:26px;
+	margin-bottom: 16px;
+	display:inline-block;
+}
 
 
 // ====================================
 // 				Form Controls
 // ====================================
 
+
+
 #settings{
 	
 
 	color:white;
 	text-align:center;
+	
+	.settings-disclaimer{
+		position: fixed;
+		top: 15px;
+		right: 20px;
+		font-size: 24px;
 
-	.logo{
-		color: @orange;
-		font-size:26px;
-		margin-bottom: 16px;
-		display:inline-block;
+		color:@light;
 	}
+
+	
 
 	p{
 		color:@middle;
@@ -462,6 +482,15 @@ body,html{
 		right: 0;
 
 		margin:0;
+
+		.modal-footer{
+			padding:0;
+			position: fixed;
+			bottom:0;
+			right:0;
+			left:0;
+
+		}
 	}
 
 	.modal-dialog{
@@ -498,14 +527,7 @@ body,html{
 			background-position: top center;
 			background-attachment: fixed;
 		}
-		.modal-footer{
-			padding:0;
-			position: fixed;
-			bottom:0;
-			right:0;
-			left:0;
-
-		}
+		
 
 		.modal-body{
 			text-align:center;
@@ -615,6 +637,26 @@ body,html{
 		}
 	}
 
+}
+
+#disclaimerModal{
+	.modal-dialog{
+		background-color:@dark;
+		color:#d3dbdb;
+		font-size: 14px;
+	}
+
+	.modal-content{
+		background:none;
+
+		.logo{
+			color: @orange;
+		}
+
+		.small{
+			font-size: 10px
+		}
+	}
 }
 
 #pauseModal{

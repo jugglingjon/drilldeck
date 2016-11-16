@@ -637,12 +637,20 @@ function combineArrays(array){
 
 
 $(document).ready(function(){
+
+	$('#disclaimerModal .btn').click(function(){
+		localStorage.setItem('DDdisclaimer','true');
+	});
+	if(!localStorage.getItem('DDdisclaimer')){
+		$('#disclaimerModal').modal();
+	}
+
+	//restore settings from localstorage
 	function restoreSettings(settings){
 		$.each(settings,function(){
 			$('.set-input').eq(this).attr('checked','checked');
 		});
 	}
-
 	if(localStorage.getItem('DDsettings')){
 		restoreSettings(JSON.parse(localStorage.getItem('DDsettings')));
 	}

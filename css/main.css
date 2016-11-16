@@ -37,6 +37,13 @@ html {
   background-color: #363D3F;
   font-family: 'Open Sans', sans-serif;
 }
+*:active,
+*:hover {
+  text-decoration: none;
+}
+p a {
+  color: #4898D4;
+}
 .nav-bottom {
   position: fixed;
   right: 0;
@@ -80,15 +87,22 @@ html {
 .workout .btn {
   background-color: #6F7B7B;
 }
-#settings {
-  color: white;
-  text-align: center;
-}
-#settings .logo {
+.logo {
   color: #EF832C;
   font-size: 26px;
   margin-bottom: 16px;
   display: inline-block;
+}
+#settings {
+  color: white;
+  text-align: center;
+}
+#settings .settings-disclaimer {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  color: #6E7B7B;
 }
 #settings p {
   color: #D4DCDB;
@@ -307,6 +321,13 @@ html {
   right: 0;
   margin: 0;
 }
+.modal.full .modal-dialog .modal-footer {
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
 .modal .modal-dialog {
   background: white;
 }
@@ -330,13 +351,6 @@ html {
   background-size: auto 100%;
   background-position: top center;
   background-attachment: fixed;
-}
-.modal#endModal .modal-footer {
-  padding: 0;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
 }
 .modal#endModal .modal-body {
   text-align: center;
@@ -422,6 +436,20 @@ html {
 .modal#endModal .modal-body .endBox .endBox-time .endBox-time-number {
   font-size: 22px;
   line-height: 28px;
+}
+#disclaimerModal .modal-dialog {
+  background-color: #232929;
+  color: #d3dbdb;
+  font-size: 14px;
+}
+#disclaimerModal .modal-content {
+  background: none;
+}
+#disclaimerModal .modal-content .logo {
+  color: #EF832C;
+}
+#disclaimerModal .modal-content .small {
+  font-size: 10px;
 }
 #pauseModal .modal-dialog {
   margin: 20px;
