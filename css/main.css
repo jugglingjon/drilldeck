@@ -59,14 +59,14 @@ p a {
 }
 .btn {
   border-radius: 0;
-  height: 74px;
+  height: 50px;
   padding: 0;
-  line-height: 74px;
+  line-height: 50px;
   background-color: #EF832C;
   color: white;
   border: 0;
   font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 2.28571429rem;
+  font-size: 28px;
   text-transform: uppercase;
 }
 .btn.disabled {
@@ -118,7 +118,7 @@ p a {
 #settings .set-label {
   display: inline-block;
   min-width: 70px;
-  padding: 0.9375rem 0.9375rem;
+  padding: 9px 0.9375rem 4px 0.9375rem;
   background-color: transparent;
   color: white;
   border: 1px solid #6E7B7B;
@@ -144,8 +144,9 @@ p a {
   border-right: 1px solid #6E7B7B;
 }
 #settings .set-label img {
-  width: 45px;
   margin: 0;
+  display: block;
+  width: 50px;
 }
 #settings .input-set-focus .set-label {
   text-align: center;
@@ -161,7 +162,7 @@ p a {
   display: none;
   position: fixed;
   background-color: #E0E0E0;
-  top: 80px;
+  top: 50px;
   left: 20px;
   right: 20px;
   height: 460px;
@@ -171,26 +172,26 @@ p a {
   transition: 1s ease-out all;
 }
 .card .card-title {
-  height: 50px;
+  height: 40px;
   margin: 0;
-  font-size: 31px;
+  font-size: 28px;
   font-family: 'Open Sans Condensed', sans-serif;
   background-color: #EF832C;
   color: white;
-  line-height: 50px;
+  line-height: 40px;
   text-align: center;
   text-transform: uppercase;
 }
 .card .ddicon-info {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 10px;
+  right: 12px;
   font-size: 20px;
   pointer-events: none;
 }
 .card .card-description {
   display: none;
-  height: 223px;
+  height: 233px;
   position: absolute;
   z-index: 99999999999999;
   left: 0;
@@ -240,7 +241,7 @@ p a {
 }
 .card .card-animation .animation {
   position: relative;
-  height: 223px;
+  height: 233px;
   background-image: url('../img/floor.png');
   background-size: 100% auto;
   background-position: center bottom;
@@ -263,12 +264,12 @@ p a {
   font-size: 22px;
 }
 .card:nth-child(2) {
-  top: 45px;
+  top: 20px;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 .card:nth-child(1) {
-  top: 10px;
+  top: -10px;
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
 }
@@ -277,24 +278,25 @@ p a {
   top: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 30px;
   background: #232929;
 }
 .workout-timer .btn-end {
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
   width: 20px;
-  line-height: 15px;
-  font-size: 20px;
+  line-height: 20px;
+  font-size: 15px;
   text-align: center;
   color: #D4DCDB;
+  height: 20px;
 }
 .workout-timer .workout-timer-total {
   position: absolute;
   right: 0;
   top: 0;
   left: 30px;
-  margin: 15px;
+  margin: 10px;
   height: 10px;
   background: #363D3E;
 }
@@ -330,6 +332,9 @@ p a {
 }
 .modal.fullScroll .modal-dialog {
   margin: 0;
+}
+.modal.fullScroll .modal-dialog .modal-content {
+  padding-bottom: 90px;
 }
 .modal.fullScroll .modal-dialog .modal-footer {
   padding: 0;

@@ -462,15 +462,15 @@ function advanceCards(){
 
 	$('.card').eq(1).addClass('frontCard').css({
 		"transform":"scale(1)",
-		"top":"80px"
+		"top":"50px"
 	});
 
 	$('.card').eq(0).css({
 		"transform":"scale(.9)",
-		"top":"45px"
+		"top":"20px"
 	}).clone().prependTo('.cards').css({
 		"transform":"scale(.8)",
-		"top":"10px"
+		"top":"-10px"
 	});
 
 	setTimeout(function(){

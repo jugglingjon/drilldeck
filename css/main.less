@@ -85,15 +85,15 @@ p a{
 
 .btn{
 	border-radius:0;
-	height: 74px;
+	height: 50px;
 	padding:0;
 
-	line-height: 74px;
+	line-height: 50px;
 	background-color: @orange;
 	color:white;
 	border:0;
 	font-family:'Open Sans Condensed', sans-serif;
-	font-size: @largerFont;
+	font-size: 28px;
 	text-transform:uppercase;
 
 	&.disabled{
@@ -168,7 +168,7 @@ p a{
 	.set-label{
 		display: inline-block;
 		min-width:70px;
-		padding: @basePadding*.75 @basePadding*.75;
+		padding: 9px 0.9375rem 4px 0.9375rem;
 		
 
 		background-color:transparent;
@@ -201,8 +201,9 @@ p a{
 		}
 
 		img{
-			width:45px;
 			margin:0;
+			display:block;
+			width:50px;
 		}
 	}
 
@@ -254,7 +255,7 @@ p a{
 	display:none;
 	position: fixed;
 	background-color: #E0E0E0;
-	top: 80px;
+	top: 50px;
 	left: 20px;
 	right: 20px;
 	height: 460px;
@@ -268,14 +269,14 @@ p a{
 	}
 
 	.card-title{
-		height: 50px;
+		height: 40px;
 		margin:0;
 		text-align:center;
-		font-size: 31px;
+		font-size: 28px;
 		font-family: 'Open Sans Condensed',sans-serif;
 		background-color: @orange;
 		color:white;
-		line-height: 50px;
+		line-height: 40px;
 		text-align:center;
 		text-transform:uppercase;
 
@@ -284,15 +285,15 @@ p a{
 	
 	.ddicon-info{
 		position:absolute;
-		top:16px;
-		right:16px;
+		top:10px;
+		right:12px;
 		font-size: 20px;
 		pointer-events: none;
 	}
 
 	.card-description{
 		display:none;
-		height: 223px;
+		height: 233px;
 		position:absolute;
 		z-index:99999999999999;
 
@@ -358,7 +359,7 @@ p a{
 
 		.animation{
 			position: relative;
-			height: 223px;
+			height: 233px;
 
 			background-image: url('../img/floor.png');
 			background-size: 100% auto;
@@ -390,12 +391,12 @@ p a{
 	}
 
 	&:nth-child(2){
-		top:45px;
+		top:20px;
 		transform: scale(.9);
 	}
 
 	&:nth-child(1){
-		top:10px;
+		top:-10px;
 		transform: scale(.8);
 	}
 
@@ -412,18 +413,19 @@ p a{
 	top:0;
 	left:0;
 	right:0;
-	height: 40px;
+	height: 30px;
 
 	background:@dark;
 
 	.btn-end{
 		display:inline-block;
-		margin: 10px;
+		margin: 5px;
 		width: 20px;
-		line-height: 15px;
-		font-size:20px;
+		line-height: 20px;
+		font-size:15px;
 		text-align:center;
 		color:@middle;
+		height:20px;
 	}
 
 	.workout-timer-total{
@@ -431,7 +433,7 @@ p a{
 		right:0;
 		top:0;
 		left:30px;
-		margin: 15px;
+		margin: 10px;
 		height: 10px;
 
 		background:#363D3E;
