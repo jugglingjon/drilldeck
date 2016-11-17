@@ -328,6 +328,16 @@ p a {
   right: 0;
   left: 0;
 }
+.modal.fullScroll .modal-dialog {
+  margin: 0;
+}
+.modal.fullScroll .modal-dialog .modal-footer {
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
 .modal .modal-dialog {
   background: white;
 }
