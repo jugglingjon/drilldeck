@@ -667,10 +667,10 @@ $(document).ready(function(){
 	//scan radios for sufficient checked, add or remove disabled class
 	function assessButtons(){
 		if($('input[name=time-set]:checked').length>=1&&$('input[name=sweat-set]:checked').length>=1&&$('input[name=body-set]:checked').length>=1){
-			$('#btn-go').removeClass('disabled').text('I\'m ready, let\'s go!');
+			$('#btn-settings-go').removeClass('disabled').text('I\'m ready, let\'s go!');
 		}
 		else{
-			$('#btn-go').addClass('disabled').text('Pick your settings');
+			$('#btn-settings-go').addClass('disabled').text('Pick your settings');
 		}
 	};
 	assessButtons();
@@ -681,8 +681,10 @@ $(document).ready(function(){
 	});
 
 	//go button clicked
-	$('body').on('click','#btn-go:not(".disabled")',function(){
-
+	$('body').on('click','#btn-go',function(){
+		//hide warmup modal
+		$('#warmupModal').modal('hide');
+		
 		//store settings
 		var settingsArray=[];
 		$('.set-input:checked').each(function(){

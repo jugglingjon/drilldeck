@@ -483,8 +483,8 @@ p a{
 		bottom: 0;
 		left: 0;
 		right: 0;
-
 		margin:0;
+
 
 		.modal-footer{
 			padding:0;
@@ -514,6 +514,13 @@ p a{
 		}
 	}
 
+	&.full{
+		.modal-dialog, .modal-content{
+			background-color: #373D3D;
+			color: #d3dbdb;
+		}
+	}
+
 	.modal-dialog{
 		
 		background: white;
@@ -533,6 +540,52 @@ p a{
 
 			.modal-footer{
 				border:0;
+			}
+		}
+	}
+	
+	&#warmupModal, &#dynamicModal, &#staticModal{
+
+		.modal-dialog, .modal-content{
+			background-color: #373D3D;
+			color: #d3dbdb;
+		}
+
+		h1{
+			font-size: 50px;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: white;
+		}
+
+		h2{
+			font-size: 21px;
+			color: @blue;
+		}
+
+		h3{
+			font-size: 16px;
+			color: @orange;
+		}
+
+		ul{
+			list-style-type:none;
+			padding-left: 20px;
+
+			li{
+				position: relative;
+
+				&::before{
+					font-family: 'drilldeck';
+					font-size:9px;
+					color: @blue;
+					content: "\e900";
+					position: absolute;
+					left:-16px;
+					top:5px;
+
+				}
 			}
 		}
 	}

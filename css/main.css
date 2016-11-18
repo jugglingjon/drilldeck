@@ -344,6 +344,11 @@ p a {
   right: 0;
   left: 0;
 }
+.modal.full .modal-dialog,
+.modal.full .modal-content {
+  background-color: #373D3D;
+  color: #d3dbdb;
+}
 .modal .modal-dialog {
   background: white;
 }
@@ -357,6 +362,58 @@ p a {
 }
 .modal .modal-dialog .modal-content .modal-footer {
   border: 0;
+}
+.modal#warmupModal .modal-dialog,
+.modal#dynamicModal .modal-dialog,
+.modal#staticModal .modal-dialog,
+.modal#warmupModal .modal-content,
+.modal#dynamicModal .modal-content,
+.modal#staticModal .modal-content {
+  background-color: #373D3D;
+  color: #d3dbdb;
+}
+.modal#warmupModal h1,
+.modal#dynamicModal h1,
+.modal#staticModal h1 {
+  font-size: 50px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+.modal#warmupModal h2,
+.modal#dynamicModal h2,
+.modal#staticModal h2 {
+  font-size: 21px;
+  color: #4898D4;
+}
+.modal#warmupModal h3,
+.modal#dynamicModal h3,
+.modal#staticModal h3 {
+  font-size: 16px;
+  color: #EF832C;
+}
+.modal#warmupModal ul,
+.modal#dynamicModal ul,
+.modal#staticModal ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+.modal#warmupModal ul li,
+.modal#dynamicModal ul li,
+.modal#staticModal ul li {
+  position: relative;
+}
+.modal#warmupModal ul li::before,
+.modal#dynamicModal ul li::before,
+.modal#staticModal ul li::before {
+  font-family: 'drilldeck';
+  font-size: 9px;
+  color: #4898D4;
+  content: "\e900";
+  position: absolute;
+  left: -16px;
+  top: 5px;
 }
 .modal#endModal .modal-content {
   background: none;
