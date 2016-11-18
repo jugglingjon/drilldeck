@@ -414,8 +414,8 @@ function startBuffer(gapTime){
 		readOnly : true,
 		thickness : .15,
 		max : 10,
-		width: 130,
-		height: 130,
+		width: 120,
+		height: 120,
 		step: .1,
 		bgColor: '#E0E0E0',
 		fgColor: '#EF832C',
@@ -638,6 +638,15 @@ function combineArrays(array){
 
 $(document).ready(function(){
 
+	//prevent sleep
+	var noSleep = new NoSleep();
+	function enableNoSleep() {
+		noSleep.enable();
+		document.removeEventListener('touchstart', enableNoSleep, false);
+	}
+	enableNoSleep();
+
+	//disclaimer control
 	$('#disclaimerModal .btn').click(function(){
 		localStorage.setItem('DDdisclaimer','true');
 	});
