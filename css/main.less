@@ -590,6 +590,19 @@ p a{
 		}
 	}
 
+	&#warmupModal, &#dynamicModal, &#staticModal{
+		.modal-content{
+			background:none;
+		}
+		.modal-dialog{
+			background-image: url('../img/warmup.jpg');
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			background-position: top center;
+			background-attachment: fixed;
+		}
+	}
+
 	&#endModal{
 		.modal-content{
 			background:none;
@@ -621,6 +634,18 @@ p a{
 			p{
 				color: #bcc6c7;
 				font-size: 16px;
+			}
+
+			.social-icon{
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				margin: 0 4px;
+
+				font-size: 40px;
+				line-height: 40px;
+				text-align: center;
+				color:#d3dbdb;
 			}
 
 			.endBox{
@@ -741,7 +766,7 @@ p a{
 
 	.modal-body{
 		h3{
-			font-size:50px;
+			font-size: 50px;
 			font-family: 'Open Sans Condensed',sans-serif;
 			text-transform:uppercase;
 			color:#6d7a7a;
@@ -760,6 +785,7 @@ p a{
 		p{
 			font-size: 16px;
 			color: #6d7a7a;
+			text-align:center;
 		}
 	}
 

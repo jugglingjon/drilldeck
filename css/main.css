@@ -415,6 +415,20 @@ p a {
   left: -16px;
   top: 5px;
 }
+.modal#warmupModal .modal-content,
+.modal#dynamicModal .modal-content,
+.modal#staticModal .modal-content {
+  background: none;
+}
+.modal#warmupModal .modal-dialog,
+.modal#dynamicModal .modal-dialog,
+.modal#staticModal .modal-dialog {
+  background-image: url('../img/warmup.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: top center;
+  background-attachment: fixed;
+}
 .modal#endModal .modal-content {
   background: none;
 }
@@ -442,6 +456,16 @@ p a {
 .modal#endModal .modal-body p {
   color: #bcc6c7;
   font-size: 16px;
+}
+.modal#endModal .modal-body .social-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 4px;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #d3dbdb;
 }
 .modal#endModal .modal-body .endBox {
   display: inline-block;
@@ -545,6 +569,7 @@ p a {
 #pauseModal .modal-body p {
   font-size: 16px;
   color: #6d7a7a;
+  text-align: center;
 }
 #pauseModal .modal-footer {
   padding: 0;
