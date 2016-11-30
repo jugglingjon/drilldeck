@@ -116,6 +116,9 @@ p a {
 #settings .set-input {
   display: none;
 }
+#settings .set-input[disabled] + .set-label {
+  opacity: .4;
+}
 #settings .set-label {
   display: inline-block;
   min-width: 70px;

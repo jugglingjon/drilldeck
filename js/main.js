@@ -324,7 +324,7 @@ var timeMins=5,
 buffer=10,
 exTime=30;
 
-var ms=100,
+var ms=1000,
 	timeRemaining=0,
 	donutSeconds=0;
 	state='buffer'
@@ -664,8 +664,40 @@ $(document).ready(function(){
 		restoreSettings(JSON.parse(localStorage.getItem('DDsettings')));
 	}
 
+	//disable inputs, if selected, select previous
+	function disableinput(inputBox){
+		if(inputBox.is(':checked')){
+			inputBox.removeAttr('checked').prev().prev().trigger('click');
+		}
+		inputBox.attr('disabled',true);
+
+	}
+
 	//scan radios for sufficient checked, add or remove disabled class
 	function assessButtons(){
+
+		//disable checkbox options
+		$('.set-input').removeAttr('disabled');
+
+		//$('.set-input[name=sweat-set]:checked').attr('data-inputValue')==40
+		var intensity=$('.set-input[name=sweat-set]:checked').attr('data-inputValue');
+		var areas=$('.set-input[name=body-set]:checked').length;
+
+		if(intensity==30&&areas<=1){
+			disableinput($('#time-20'));
+			disableinput($('#time-15'));
+			disableinput($('#time-10'));			
+		}
+
+		if(intensity==30&&areas<=2){
+			disableinput($('#time-20'));
+		}
+
+		if(intensity==60&&areas<=1){
+			disableinput($('#time-20'));
+		}
+
+		//assess go button state
 		if($('input[name=time-set]:checked').length>=1&&$('input[name=sweat-set]:checked').length>=1&&$('input[name=body-set]:checked').length>=1){
 			$('#btn-settings-go').removeClass('disabled').text('I\'m ready, let\'s go!');
 		}
