@@ -297,7 +297,7 @@ p a {
 }
 .workout-timer .workout-timer-total {
   position: absolute;
-  right: 0;
+  right: 45px;
   top: 0;
   left: 30px;
   margin: 10px;
@@ -312,6 +312,13 @@ p a {
   transition: 1s all;
   background-color: #EF832C;
   float: left;
+}
+.workout-timer .workout-timer-number {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: #D4DCDB;
+  font-size: 14px;
 }
 .controls {
   position: fixed;
@@ -428,7 +435,7 @@ p a {
 .modal#staticModal .modal-dialog {
   background-image: url('../img/warmup.jpg');
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
   background-position: top center;
   background-attachment: fixed;
 }

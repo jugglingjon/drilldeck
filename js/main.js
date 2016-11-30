@@ -361,6 +361,7 @@ function showCard(){
 function updateWorkoutTimer(){
 	var percentWidth=workTime/timeSecs*100;
 	$('.workout-timer-elapsed').css('width',percentWidth+'%');
+	$('.workout-timer-number').text(minSec(workTime));
 }
 
 //assess and begin buffer/workout cycle
